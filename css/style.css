@@ -519,6 +519,7 @@
 .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text .icons__about a {
   display: inline-block;
   margin: 0px 10px;
+  color: var(--color);
 }
 
 .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text .icons__about a i {

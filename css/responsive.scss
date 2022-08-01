@@ -51,22 +51,6 @@
         }
       }
     }
-    section.gallery__portofolio{
-      padding: 50px 10px;
-      .container__gallery__portofolio{
-        width: 100%;
-        .row__gallery__portofolio{
-          .box__gallery__portofolio{
-            grid-template-columns: 0.5fr 1fr 1fr;
-            grid-template-rows: 150px 140px auto;
-          }
-          .box__gallery__portofolio__II{
-            grid-template-columns: 1fr 1fr 0.5fr;
-            grid-template-rows: auto 140px 0px;
-          }
-        }
-      }
-    }
     section.about__portofolio{
       padding: 50px 10px;
       .container__about__portofolio{
@@ -126,6 +110,9 @@
               height: 250px;
             }
           }
+        }
+        .modal__galerry{
+          width: 100%;
         }
       }
     }
@@ -250,41 +237,6 @@
         }
       }
     }
-    section.gallery__portofolio{
-      width: 100%;
-      height: 100%;
-      padding: 50px 10px;
-      .container__gallery__portofolio{
-        width: 100%;
-        .row__gallery__portofolio{
-          .box__gallery__portofolio{
-            grid-template-rows: 250px 240px 200px;
-            grid-template-areas: 
-						'box__gallery__I box__gallery__I box__gallery__I'
-						'box__gallery__II box__gallery__II box__gallery__II'
-            'box__gallery__III box__gallery__III box__gallery__III' ;
-          }
-          .box__gallery__portofolio__II{
-            grid-template-rows: 250px 240px 200px;
-            grid-template-areas: 
-						'box__gallery__I box__gallery__I box__gallery__I'
-						'box__gallery__II box__gallery__II box__gallery__II'
-            'box__gallery__III box__gallery__III box__gallery__III' ;
-          }
-          .modal__galerry{
-            width: 100%;
-            padding: 10px;
-            .modal__pict{
-              width: 100%;
-              img{
-                width: 100%;
-                height: 100%;
-              }
-            }
-          }
-        }
-      }
-    }
     section.about__portofolio{
       padding: 50px 10px;
       .container__about__portofolio{
@@ -374,6 +326,20 @@
             .box__images__projects__portofolio{
               margin-top: 30px;
             }
+          }
+        }
+      }
+      .modal__gallery{
+        width: 100%;
+        padding: 40px 10px;
+        .modal__content__gallery{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            width: 100%;
+            height: auto;
           }
         }
       }

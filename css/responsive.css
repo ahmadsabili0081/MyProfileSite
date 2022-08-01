@@ -53,24 +53,6 @@
   .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio {
     padding-top: 100px;
   }
-  .container section.gallery__portofolio {
-    padding: 50px 10px;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio {
-    width: 100%;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .box__gallery__portofolio {
-    -ms-grid-columns: 0.5fr 1fr 1fr;
-        grid-template-columns: 0.5fr 1fr 1fr;
-    -ms-grid-rows: 150px 140px auto;
-        grid-template-rows: 150px 140px auto;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .box__gallery__portofolio__II {
-    -ms-grid-columns: 1fr 1fr 0.5fr;
-        grid-template-columns: 1fr 1fr 0.5fr;
-    -ms-grid-rows: auto 140px 0px;
-        grid-template-rows: auto 140px 0px;
-  }
   .container section.about__portofolio {
     padding: 50px 10px;
   }
@@ -118,6 +100,9 @@
   .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .box__images__projects__portofolio {
     width: 500px;
     height: 250px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .modal__galerry {
+    width: 100%;
   }
   .container section.contact__portofolio {
     padding: 50px 10px;
@@ -248,35 +233,6 @@
   .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .description span.type {
     font-size: 21px;
   }
-  .container section.gallery__portofolio {
-    width: 100%;
-    height: 100%;
-    padding: 50px 10px;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio {
-    width: 100%;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .box__gallery__portofolio {
-    -ms-grid-rows: 250px 240px 200px;
-        grid-template-rows: 250px 240px 200px;
-        grid-template-areas: 'box__gallery__I box__gallery__I box__gallery__I' 'box__gallery__II box__gallery__II box__gallery__II' 'box__gallery__III box__gallery__III box__gallery__III';
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .box__gallery__portofolio__II {
-    -ms-grid-rows: 250px 240px 200px;
-        grid-template-rows: 250px 240px 200px;
-        grid-template-areas: 'box__gallery__I box__gallery__I box__gallery__I' 'box__gallery__II box__gallery__II box__gallery__II' 'box__gallery__III box__gallery__III box__gallery__III';
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .modal__galerry {
-    width: 100%;
-    padding: 10px;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .modal__galerry .modal__pict {
-    width: 100%;
-  }
-  .container section.gallery__portofolio .container__gallery__portofolio .row__gallery__portofolio .modal__galerry .modal__pict img {
-    width: 100%;
-    height: 100%;
-  }
   .container section.about__portofolio {
     padding: 50px 10px;
   }
@@ -374,6 +330,26 @@
   }
   .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo.block .box__images__projects__portofolio {
     margin-top: 30px;
+  }
+  .container section.projects__portofolio .modal__gallery {
+    width: 100%;
+    padding: 40px 10px;
+  }
+  .container section.projects__portofolio .modal__gallery .modal__content__gallery {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container section.projects__portofolio .modal__gallery .modal__content__gallery img {
+    width: 100%;
+    height: auto;
   }
   .container section.contact__portofolio {
     padding: 50px 10px;

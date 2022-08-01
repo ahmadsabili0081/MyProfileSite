@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio</title>
-    <meta name="keywords" content="HTML,CSS,JAVASCRIPT, PORTOFOLIO">
-    <meta http-equiv="refresh" content="500">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="fontawesome-free-6.1.1-web/css/fontawesome.min.css">
-    <link rel="stylesheet" type="text/css" href="fontawesome-free-6.1.1-web/css/solid.min.css">
-    <link rel="stylesheet" type="text/css" href="fontawesome-free-6.1.1-web/css/brands.min.css">
-    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+    <meta name="keywords" content="HTML,CSS,JAVASCRIPT, PORTOFOLIO" />
+    <meta http-equiv="refresh" content="500" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <div class="container">
       <div class="btn__top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -22,18 +25,33 @@
       <!-- header -->
       <header>
         <div class="container__header">
-          <div class="logo"><a href="#home">Ahmad <span>Sabili</span></a></div>
+          <div class="logo">
+            <a href="#home">Ahmad <span>Sabili</span></a>
+          </div>
           <nav class="portofolio__nav">
             <ul class="portofolio__nav__list">
-              <li class="list__portofolio active"><i class="fa fa-suitcase" aria-hidden="true"></i><a class="link__portofolio__nav" href="#works">Works</a></li>
-              <li class="list__portofolio"><i class="fa fa-user" aria-hidden="true"></i><a class="link__portofolio__nav" href="#about">About</a></li>
-              <li class="list__portofolio"><i class="fa fa-phone" aria-hidden="true"></i><a class="link__portofolio__nav" href="#contact">Contact</a></li>
+              <li data-tab-target="#home" class="list__portofolio active">
+                <i class="fa fa-home" aria-hidden="true"></i
+                ><a class="link__portofolio__nav" href="#home">Home</a>
+              </li>
+              <li data-tab-target="#works" class="list__portofolio">
+                <i class="fa fa-suitcase" aria-hidden="true"></i
+                ><a class="link__portofolio__nav" href="#works">Works</a>
+              </li>
+              <li data-tab-target="#about" class="list__portofolio">
+                <i class="fa fa-user" aria-hidden="true"></i
+                ><a class="link__portofolio__nav" href="#about">About</a>
+              </li>
+              <li data-tab-target="#contact" class="list__portofolio">
+                <i class="fa fa-phone" aria-hidden="true"></i
+                ><a class="link__portofolio__nav" href="#contact">Contact</a>
+              </li>
             </ul>
           </nav>
         </div>
       </header>
       <!-- banner__portofolio -->
-      <section class="banner__portofolio" id="home">
+      <section class="banner__portofolio active" data-tab-content id="home">
         <div class="container__banner__portofolio">
           <div class="row__banner__portofolio">
             <div class="box__banner__portofolio">
@@ -42,190 +60,222 @@
               <div class="description">
                 <span class="type"></span>
               </div>
-              <button class="btn__banner"><a target="blank_" href="cv/ahmdsabili CV baru.pdf">My Resume</a></button>
+              <button class="btn__banner">
+                <a target="blank_" href="cv/ahmdsabili CV baru.pdf"
+                  >My Resume</a
+                >
+              </button>
               <div class="icons">
-                <a target="_blank" href="https://github.com/ahmadsabili0081/"><i class="fa-brands fa-github"></i></a>
-                <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i class="fa-solid fa-envelope"></i></a>
-                <a target="_blank" href="https://www.instagram.com/ahmdsblii/"><i class="fa-brands fa-instagram"></i></a>
+                <a target="_blank" href="https://github.com/ahmadsabili0081/"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a
+                  target="_blank"
+                  href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                  ><i class="fa-solid fa-envelope"></i
+                ></a>
+                <a target="_blank" href="https://www.instagram.com/ahmdsblii/"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- gallery__portofolio -->
-      <section class="gallery__portofolio">
-        <div class="container__gallery__portofolio">
-          <div class="row__gallery__portofolio">
-            <div class="box__gallery__portofolio">
-              <div class="box__gallery__I">
-                <img class="images-item" src="images/gallery1.png" alt="gallery1">
-              </div>
-              <div class="box__gallery__II">
-                <img class="images-item" src="images/workspases.png" alt="workspases">
-              </div>
-              <div class="box__gallery__III">
-                <img class="images-item" src="images/gallery3.png" alt="gallery3">
-              </div>
-            </div>
-            <div class="box__gallery__portofolio__II">
-              <div class="box__gallery__I">
-                <img class="images-item" src="images/Lentera.png" alt="gallery4">
-              </div>
-              <div class="box__gallery__II">
-                <img class="images-item" src="images/FiberLanding .png" alt="gallery5">
-              </div>
-              <div class="box__gallery__III">
-                <img class="images-item" src="images/MigasNews.png" alt="gallery6">
-              </div>
-            </div>
-            <div class="modal__galerry" id="modal__window">
-              <div class="modal__close" id="modal__close">&times;</div>
-              <div class="modal__pict" id="modal__pict"></div>
             </div>
           </div>
         </div>
       </section>
       <!-- about__portofolio -->
-      <section class="about__portofolio" id="about">
+      <section class="about__portofolio" data-tab-content id="about">
         <div class="container__about__portofolio">
           <div class="row__about__portofolio">
             <div class="box__about">
               <div class="box__about__text">
-                <h1> Hi there👋🏻</h1>
-                <p>I’m Ahmad Sabili Alghifari, you can call me Bili. I live in indonesia. So right now I'm studying at Univeristy of Nusa Mandiri,
-                   I'm interested in majoring information system that make me wanna know so far about this.<br><br>
-                  I make this website to improve my skill in Front-End. This website still far from the
-                   perfect words. I hope u guys who seeing my website interested to hire me or to be your partner work.</p>
-                   <div class="icons__about">
-                    <a target="_blank" href="https://github.com/ahmadsabili0081/"><i class="fa-brands fa-github"></i></a>
-                    <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i class="fa-solid fa-envelope"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/ahmdsblii/"><i class="fa-brands fa-instagram"></i></a>
-                  </div>
+                <h1>Hi there👋🏻</h1>
+                <p>
+                  I’m Ahmad Sabili Alghifari, you can call me Bili. I live in
+                  indonesia. So right now I'm studying at Univeristy of Nusa
+                  Mandiri, I'm interested in majoring information system that
+                  make me wanna know so far about this.<br /><br />
+                  I make this website to improve my skill in Front-End. This
+                  website still far from the perfect words. I hope u guys who
+                  seeing my website interested to hire me or to be your partner
+                  work.
+                </p>
+                <div class="icons__about">
+                  <a target="_blank" href="https://github.com/ahmadsabili0081/"
+                    ><i class="fa-brands fa-github"></i
+                  ></a>
+                  <a
+                    target="_blank"
+                    href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></a>
+                  <a target="_blank" href="https://www.instagram.com/ahmdsblii/"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                </div>
               </div>
               <div class="box__about__images">
-                <img src="images/profile.png" alt="profile">
+                <img src="images/profile.png" alt="profile" />
               </div>
             </div>
           </div>
           <!-- experience -->
           <div class="row__experience__portofolio">
-           <div class="title">
-            <h1>Experience</h1>
-           </div>
-           <div class="box__experience">
+            <div class="title">
+              <h1>Experience</h1>
+            </div>
+            <div class="box__experience">
               <div class="box__date">
                 <h1>Oct 2021 - Dec 2021</h1>
               </div>
               <div class="box__description__experience">
                 <h1>Kinaja</h1>
-                <br>
+                <br />
                 <h1 class="title__experience">Front-End Developer Intern</h1>
-                <br>
-                <p>Here I did an internship at a company called KINAJA.ID. This company is engaged in 
-                  landing, branding and other creative needs such as making a website display.</p>
-                  <a target="_blank" href="https://drive.google.com/file/d/1smtvwH-uHWheEMylh5IiSNybyuulfoOm/view">Click Here</a>
+                <br />
+                <p>
+                  Here I did an internship at a company called KINAJA.ID. This
+                  company is engaged in landing, branding and other creative
+                  needs such as making a website display.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1smtvwH-uHWheEMylh5IiSNybyuulfoOm/view"
+                  >Click Here</a
+                >
               </div>
-           </div>
-           <div class="box__experience">
+            </div>
+            <div class="box__experience">
               <div class="box__date">
                 <h1>Sep 2021 - Oct 2021</h1>
               </div>
               <div class="box__description__experience">
                 <h1>Vaksinasi Merdeka Polda Metro Jaya</h1>
-                <br>
+                <br />
                 <h1 class="title__experience">Non Medical Volunteer</h1>
-                <br>
-                <p>Inputting the data of people who have been vaccinated. This activity was initiated by Polda Metro Jaya,
-                   in order to support vaccines in cities that support the capital city.</p>
-                <a target="_blank" href="https://drive.google.com/file/d/1SACFor89hHv0ZoyLYtp8KJHt_z60vyWk/view">Click Here</a>
+                <br />
+                <p>
+                  Inputting the data of people who have been vaccinated. This
+                  activity was initiated by Polda Metro Jaya, in order to
+                  support vaccines in cities that support the capital city.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1SACFor89hHv0ZoyLYtp8KJHt_z60vyWk/view"
+                  >Click Here</a
+                >
               </div>
-           </div>
-           <div class="box__experience">
+            </div>
+            <div class="box__experience">
               <div class="box__date">
                 <h1>July 2018 - Dec 2021</h1>
               </div>
               <div class="box__description__experience">
                 <h1>Paud Nurul Iman</h1>
-                <br>
+                <br />
                 <h1 class="title__experience">Educator Operator</h1>
-                <br>
-                <p>Input data for incoming and outgoing students at PAUD NURUL IMAN. </p>
+                <br />
+                <p>
+                  Input data for incoming and outgoing students at PAUD NURUL
+                  IMAN.
+                </p>
                 <a href="#" class="notFunctions">Click Here</a>
               </div>
-           </div>
-           <div class="box__experience__skill">
-            <div class="box__title">
-              <h1>Skills</h1>
             </div>
-            <div class="box__skills">
-              <p>HTML</p>
-              <div class="progress">
-                <div class="progress__bar">
-                  <span>80%</span>
-                </div>
+            <div class="box__experience__skill">
+              <div class="box__title">
+                <h1>Skills</h1>
               </div>
-              <p>CSS3</p>
-              <div class="progress">
-                <div class="progress__bar">
-                  <span>80%</span>
+              <div class="box__skills">
+                <p>HTML</p>
+                <div class="progress">
+                  <div class="progress__bar">
+                    <span>80%</span>
+                  </div>
                 </div>
-              </div>
-              <p>JAVASCRIPT</p>
-              <div class="progress">
-                <div class="progress__bar">
-                  <span>60%</span>
+                <p>CSS3</p>
+                <div class="progress">
+                  <div class="progress__bar">
+                    <span>80%</span>
+                  </div>
                 </div>
-              </div>
-              <p>PHP</p>
-              <div class="progress">
-                <div class="progress__bar">
-                  <span>50%</span>
+                <p>JAVASCRIPT</p>
+                <div class="progress">
+                  <div class="progress__bar">
+                    <span>60%</span>
+                  </div>
                 </div>
-              </div>
-              <p>MYSQL</p>
-              <div class="progress">
-                <div class="progress__bar">
-                  <span>50%</span>
+                <p>PHP</p>
+                <div class="progress">
+                  <div class="progress__bar">
+                    <span>50%</span>
+                  </div>
+                </div>
+                <p>MYSQL</p>
+                <div class="progress">
+                  <div class="progress__bar">
+                    <span>50%</span>
+                  </div>
                 </div>
               </div>
             </div>
-           </div>
           </div>
         </div>
       </section>
       <!-- projects__portofolio -->
-      <section class="projects__portofolio" id="works">
+      <section class="projects__portofolio" data-tab-content id="works">
         <div class="container__projects__portofolio">
           <div class="title__projects">
             <span>Selected Works</span>
-            <h1>Here’s several web<br> projects that I’ve created</h1>
-            <p>These web I made during my internship and some of them as a medium for my learning</p>
+            <h1>
+              Here’s several web<br />
+              projects that I’ve created
+            </h1>
+            <p>
+              These web I made during my internship and some of them as a medium
+              for my learning
+            </p>
           </div>
           <div class="row__projects__portofolio">
-            <div class="box__project__portofolio ">
+            <div class="box__project__portofolio">
               <div class="text__details__projects__portofolio">
                 <div class="details">
                   <span>Website</span>
                   <span>Exercise</span>
                 </div>
                 <h1>Interior Furniture Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/Furniture-Landing/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/Furniture-Landing/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img class="images-item" src="images/gallery1.png" alt="gallery1">
+                <img
+                  class="images-item"
+                  src="images/gallery1.png"
+                  alt="gallery1"
+                />
               </div>
             </div>
-            <div class="box__project__portofolioo ">
+            <div class="box__project__portofolioo">
               <div class="text__details__projects__portofolio">
                 <div class="details">
                   <span>Website</span>
                   <span>internship</span>
                 </div>
                 <h1>Adira Landing Page</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/AdiraLandingpage/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/AdiraLandingpage/"
+                  >View Site</a
+                >
               </div>
-              <div class="box__images__projects__portofolio ">
-                <img class="images-item" src="images/AdiraLanding.png" alt="AdiraLanding">
+              <div class="box__images__projects__portofolio">
+                <img
+                  class="images-item"
+                  src="images/AdiraLanding.png"
+                  alt="AdiraLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolio">
@@ -235,10 +285,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>workspases Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/Workspases">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/Workspases"
+                  >View Site</a
+                >
               </div>
-              <div class="box__images__projects__portofolio ">
-                <img  class="images-item" src="images/workspases.png" alt="workspases">
+              <div class="box__images__projects__portofolio">
+                <img
+                  class="images-item"
+                  src="images/workspases.png"
+                  alt="workspases"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -248,10 +306,18 @@
                   <span>internship</span>
                 </div>
                 <h1>Migas Blog Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/MigasNews/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/MigasNews/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/MigasNews.png" alt="gallery1">
+                <img
+                  class="images-item"
+                  src="images/MigasNews.png"
+                  alt="gallery1"
+                />
               </div>
             </div>
             <div class="box__project__portofolio none">
@@ -261,10 +327,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Osiris Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/osirisLanding/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/osirisLanding/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/OsirisLanding.png" alt="OsirisLanding">
+                <img
+                  class="images-item"
+                  src="images/OsirisLanding.png"
+                  alt="OsirisLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -274,10 +348,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Lentera Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/Lentera/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/Lentera/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/Lentera.png" alt="Lentera">
+                <img
+                  class="images-item"
+                  src="images/Lentera.png"
+                  alt="Lentera"
+                />
               </div>
             </div>
             <div class="box__project__portofolio none">
@@ -287,10 +369,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>House Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/House/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/House/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/HouseLandingEdit.png" alt="HouseLanding">
+                <img
+                  class="images-item"
+                  src="images/HouseLandingEdit.png"
+                  alt="HouseLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -300,10 +390,18 @@
                   <span>internship</span>
                 </div>
                 <h1>Ilo Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/Landingpage/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/Landingpage/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/IloLanding.png" alt="IloLanding">
+                <img
+                  class="images-item"
+                  src="images/IloLanding.png"
+                  alt="IloLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolio none">
@@ -313,10 +411,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Give Money Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/giveMoney/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/giveMoney/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/givMoney.png" alt="givMoney">
+                <img
+                  class="images-item"
+                  src="images/givMoney.png"
+                  alt="givMoney"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -326,10 +432,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Indie Brew Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/IndieBrew/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/IndieBrew/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/IndieBrew.png" alt="IndieBrew">
+                <img
+                  class="images-item"
+                  src="images/IndieBrew.png"
+                  alt="IndieBrew"
+                />
               </div>
             </div>
             <div class="box__project__portofolio none">
@@ -339,10 +453,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Fiber Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/FiberLandingPage/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/FiberLandingPage/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/FiberLanding .png" alt="FiberLanding">
+                <img
+                  class="images-item"
+                  src="images/FiberLanding .png"
+                  alt="FiberLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -352,10 +474,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Chirp Landing Website</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/ChirpLanding/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/ChirpLanding/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/ChirpLanding.png" alt="ChirpLanding">
+                <img
+                  class="images-item"
+                  src="images/ChirpLanding.png"
+                  alt="ChirpLanding"
+                />
               </div>
             </div>
             <div class="box__project__portofolio none">
@@ -365,10 +495,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Memory Game</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/memoryGame/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/memoryGame/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/memoryGame.png" alt="memoryGame">
+                <img
+                  class="images-item"
+                  src="images/memoryGame.png"
+                  alt="memoryGame"
+                />
               </div>
             </div>
             <div class="box__project__portofolioo none">
@@ -378,10 +516,18 @@
                   <span>Exercise</span>
                 </div>
                 <h1>Todo Apps</h1>
-                <a target="_blank" href="https://ahmadsabili0081.github.io/TodoApps/">View Site</a>
+                <a
+                  target="_blank"
+                  href="https://ahmadsabili0081.github.io/TodoApps/"
+                  >View Site</a
+                >
               </div>
               <div class="box__images__projects__portofolio">
-                <img  class="images-item" src="images/todoApps.png" alt="todoApps">
+                <img
+                  class="images-item"
+                  src="images/todoApps.png"
+                  alt="todoApps"
+                />
               </div>
             </div>
             <div class="btn__projects">
@@ -389,18 +535,31 @@
             </div>
           </div>
         </div>
+        <div class="modal__gallery">
+          <i class="fa fa-close" id="modalClose" aria-hidden="true"></i>
+          <div class="modal__content__gallery" id="modal__pict"></div>
+        </div>
       </section>
       <!-- contact__portofolio -->
-      <section class="contact__portofolio" id="contact">
+      <section class="contact__portofolio" data-tab-content id="contact">
         <div class="container__contact__portofolio">
           <div class="row__contact__portofolio">
             <div class="text__contact__portofolio">
               <h1>Let’s get in touch!</h1>
-              <p>Share with me about your thoughts or projects, maybe we can work together</p>
+              <p>
+                Share with me about your thoughts or projects, maybe we can work
+                together
+              </p>
               <div class="icons__contact">
-                <i class="fa fa-envelope-o" aria-hidden="true"> <span>ahmadsabili0081@gmail.com</span></i>
-                <i class="fa fa-instagram" aria-hidden="true"> <span>ahmdsblii</span></i>
-                <i class="fa fa-map-marker" aria-hidden="true"> <span>Tangerang, Indonesia</span></i>
+                <i class="fa fa-envelope-o" aria-hidden="true">
+                  <span>ahmadsabili0081@gmail.com</span></i
+                >
+                <i class="fa fa-instagram" aria-hidden="true">
+                  <span>ahmdsblii</span></i
+                >
+                <i class="fa fa-map-marker" aria-hidden="true">
+                  <span>Tangerang, Indonesia</span></i
+                >
               </div>
             </div>
             <div class="box__form__contact__portofolio">
@@ -409,18 +568,23 @@
                 <div class="input__group">
                   <div class="input">
                     <label for="Name">Name</label>
-                    <input type="text" placeholder="Your Name">
+                    <input type="text" placeholder="Your Name" />
                   </div>
                   <div class="input">
                     <label for="Email Address">Email Address</label>
-                    <input type="email" placeholder="Your Email Address">
+                    <input type="email" placeholder="Your Email Address" />
                   </div>
                 </div>
                 <div class="input__group">
                   <label for="Message">Message</label>
-                  <textarea name="Message" placeholder="Tell me about your project"></textarea>
+                  <textarea
+                    name="Message"
+                    placeholder="Tell me about your project"
+                  ></textarea>
                 </div>
-                <button class="btn__form notFunctions" type="submit">Send</button>
+                <button class="btn__form notFunctions" type="submit">
+                  Send
+                </button>
               </form>
             </div>
           </div>
@@ -433,27 +597,40 @@
               <div class="logo">
                 <a href="#">Ahmad Sabili</a>
               </div>
-              <span>Ahmad Sabili Copyright ©️ 2022 Ahmad Sabili. All rights reserved</span>
+              <span
+                >Ahmad Sabili Copyright ©️ 2022 Ahmad Sabili. All rights
+                reserved</span
+              >
             </div>
             <div class="footer__link">
-              <a target="_blank" href="https://github.com/ahmadsabili0081/">Github</a>
-              <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email</a>
-              <a  target="_blank" href="https://www.instagram.com/ahmdsblii/">Instagram</a>
+              <a target="_blank" href="https://github.com/ahmadsabili0081/"
+                >Github</a
+              >
+              <a
+                target="_blank"
+                href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                >Email</a
+              >
+              <a target="_blank" href="https://www.instagram.com/ahmdsblii/"
+                >Instagram</a
+              >
             </div>
           </div>
         </div>
       </footer>
     </div>
-    <script src="js/aos.js"></script>
+
     <script src="js/main.js"></script>
     <script src="typed.js-master/lib/typed.min.js"></script>
     <script>
-      let typed = new Typed('.type', {
-        strings : ['Junior Front-End Developer and Web Designer based in Indonesia.'],
-        typeSpeed : 40,
+      let typed = new Typed(".type", {
+        strings: [
+          "Junior Front-End Developer and Web Designer based in Indonesia.",
+        ],
+        typeSpeed: 40,
         backSpeed: 70,
-        loop : true
-    });
+        loop: true,
+      });
     </script>
-</body>
+  </body>
 </html>

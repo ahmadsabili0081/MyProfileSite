@@ -1,0 +1,386 @@
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+    min-height: 100vh;
+  }
+  .container header {
+    width: 100%;
+  }
+  .container header .container__header {
+    width: 100%;
+  }
+  .container section.banner__portofolio {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  .container section.gallery__portofolio {
+    padding: 100px 10px;
+  }
+  .container section.about__portofolio {
+    padding: 100px 10px;
+  }
+  .container section.projects__portofolio {
+    padding: 100px 10px;
+  }
+  .container section.contact__portofolio {
+    padding: 100px 10px;
+  }
+  .container footer {
+    padding: 50px 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .container header {
+    width: 100%;
+  }
+  .container header .container__header {
+    width: 100%;
+  }
+  .container section.banner__portofolio {
+    width: 100%;
+    padding: 50px 10px;
+  }
+  .container section.banner__portofolio .container__banner__portofolio {
+    min-height: 100%;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio {
+    padding-top: 100px;
+  }
+  .container section.about__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.about__portofolio .container__about__portofolio {
+    width: 100%;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text {
+    width: 400px;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__images {
+    width: 300px;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience {
+    width: 100%;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience {
+    width: 500px;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill {
+    width: 100%;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills {
+    width: 550px;
+    justify-content: space-between;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills .box_skill_image {
+    width: 80px;
+    height: 70px;
+  }
+  .container section.projects__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio {
+    width: 100%;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio h1 {
+    font-size: 30px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .box__images__projects__portofolio {
+    width: 600px;
+    height: 250px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio {
+    width: 300px;
+    margin-left: 30px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio h1 {
+    font-size: 30px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .box__images__projects__portofolio {
+    width: 500px;
+    height: 250px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .modal__galerry {
+    width: 100%;
+  }
+  .container section.contact__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.contact__portofolio .container__contact__portofolio {
+    width: 100%;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio {
+    width: 500px;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=text],
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=email] {
+    width: 100%;
+  }
+  .container footer {
+    padding: 50px 10px;
+  }
+  .container footer .container__footer {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 570px) {
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .container .btn__top {
+    bottom: 100px;
+  }
+  .container .btn__topp {
+    right: 20px;
+  }
+  .container header {
+    width: 100%;
+    padding: 2%;
+  }
+  .container header .container__header {
+    width: 100%;
+  }
+  .container header .container__header nav.portofolio__nav {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #e4e4e4;
+    box-shadow: 10px 5px 2px rgba(0, 0, 0, 0.15);
+  }
+  .container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio {
+    text-align: center;
+    transition: 0.5s;
+    padding: 2px;
+    width: 100px;
+  }
+  .container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio i {
+    margin: 10px 0px;
+    font-size: 20px;
+    display: block;
+  }
+  .container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio.active {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.12);
+    transition: 0.5s;
+    font-weight: 500;
+  }
+  .container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio.active i {
+    animation-name: shake;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+  }
+  .container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio:hover {
+    transform: translateY(-5px);
+    transition: 0.5s;
+  }
+  .container header.sticky {
+    padding: 3% 2%;
+    box-shadow: none;
+  }
+  .container section.banner__portofolio {
+    width: 100%;
+    min-height: 100vh;
+  }
+  .container section.banner__portofolio .container__banner__portofolio {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio {
+    padding-top: 100px;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio {
+    width: 100%;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio h1.tobe {
+    font-size: 40px;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .description {
+    width: 100%;
+  }
+  .container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .description span.type {
+    font-size: 21px;
+  }
+  .container section.about__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.about__portofolio .container__about__portofolio {
+    width: 100%;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about {
+    width: 100%;
+    flex-direction: column;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text {
+    width: 100%;
+    text-align: center;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__images {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .title {
+    text-align: center;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .title h1 {
+    text-align: center;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience {
+    width: 100%;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill {
+    width: 100%;
+    flex-direction: column;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__title h1 {
+    font-weight: 500;
+    font-size: 40px;
+  }
+  .container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills {
+    width: 100%;
+  }
+  .container section.projects__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio {
+    width: 100%;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .title__projects {
+    width: 100%;
+    text-align: center;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio {
+    width: 100%;
+    flex-direction: column;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio {
+    width: 100%;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio .details {
+    text-align: center;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .box__images__projects__portofolio {
+    width: 100%;
+    margin-top: 30px;
+    height: auto;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo {
+    flex-direction: column;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio {
+    width: 100%;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio .details {
+    text-align: center;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .box__images__projects__portofolio {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo.block {
+    flex-direction: column;
+  }
+  .container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo.block .box__images__projects__portofolio {
+    margin-top: 30px;
+  }
+  .container section.projects__portofolio .modal__gallery {
+    width: 100%;
+    padding: 40px 10px;
+  }
+  .container section.projects__portofolio .modal__gallery .modal__content__gallery {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container section.projects__portofolio .modal__gallery .modal__content__gallery img {
+    width: 100%;
+    height: auto;
+  }
+  .container section.contact__portofolio {
+    padding: 50px 10px;
+  }
+  .container section.contact__portofolio .container__contact__portofolio {
+    width: 100%;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio {
+    flex-direction: column-reverse;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio {
+    width: 100%;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio h1,
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio p {
+    text-align: center;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio {
+    width: 100%;
+    margin: 30px 0px;
+    padding: 30px 15px;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio h1 {
+    text-align: center;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group {
+    flex-direction: column;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input {
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=text],
+  .container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=email] {
+    width: 100%;
+    display: block;
+  }
+  .container footer {
+    padding: 50px 10px 100px 10px;
+  }
+  .container footer .container__footer {
+    width: 100%;
+  }
+  .container footer .container__footer .row__footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .container footer .container__footer .row__footer .footer__logo .logo {
+    margin: 10px 0px;
+  }
+  .container footer .container__footer .row__footer .footer__link {
+    margin: 20px 0px;
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}/*# sourceMappingURL=responsive.css.map */

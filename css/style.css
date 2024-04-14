@@ -1,0 +1,727 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --header-nav: #ffffff;
+  --shadow-nav-bg: #0000001f;
+  --color-logo: #404040;
+  --color: #4c4ddc;
+  --banner-bg: #f5f5f5;
+  --gallery-1: #ededed;
+  --gallery-3: #8213ff;
+  --about-title: #0a0a0a;
+  --text-experience: #757575;
+  --bg-projects: #f5f5ff;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+.container [data-tab-content] {
+  display: none;
+}
+.container .active[data-tab-content] {
+  display: block;
+}
+.container .btn__top {
+  position: fixed;
+  right: -50px;
+  bottom: 20px;
+  background-color: var(--color);
+  padding: 5px;
+  z-index: 200;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.container .btn__top i {
+  color: var(--banner-bg);
+}
+.container .btn__top.btn__topp {
+  right: 20px;
+  transition: 0.5s;
+}
+.container header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 1.5%;
+  transition: 0.5s;
+  z-index: 10;
+}
+.container header .container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.container header .container__header .logo {
+  font-size: 28px;
+}
+.container header .container__header .logo a {
+  text-decoration: none;
+  font-style: normal;
+  font-family: "Inter", sans-serif;
+  color: var(--color-logo);
+}
+.container header .container__header .logo a span {
+  color: var(--color);
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio {
+  cursor: pointer;
+  list-style-type: none;
+  margin: 0px 10px;
+  font-weight: 300;
+  padding: 10px 20px;
+  transition: 0.5s;
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio i {
+  margin: 0px 10px;
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio a.link__portofolio__nav {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--color-logo);
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio.active {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.12);
+  transition: 0.5s;
+  font-weight: 500;
+}
+.container header .container__header nav.portofolio__nav ul.portofolio__nav__list li.list__portofolio.active i {
+  animation-name: shake;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+.container header.sticky {
+  position: fixed;
+  top: 0;
+  background-color: var(--banner-bg);
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  transition: 0.5s;
+}
+.container section.banner__portofolio {
+  width: 100%;
+  min-width: 100%;
+  position: relative;
+  background-color: var(--banner-bg);
+}
+.container section.banner__portofolio .container__banner__portofolio {
+  max-width: 1200px;
+  margin: 0px auto;
+  min-height: 100vh;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio {
+  width: 700px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio h1.tobe {
+  font-style: normal;
+  font-weight: 300;
+  color: var(--color-logo);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio h1 {
+  font-size: 60px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  line-height: 1.5;
+  color: var(--color);
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .description {
+  width: 80%;
+  margin-top: 20px;
+  text-align: center;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .description span.type {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio button.btn__banner {
+  display: block;
+  padding: 12px 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: var(--color);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio button.btn__banner a {
+  color: var(--header-nav);
+  text-decoration: none;
+  letter-spacing: 1.1px;
+  font-family: "Inter", sans-serif;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .icons {
+  margin-top: 30px;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .icons a {
+  display: inline-block;
+  margin: 0px 17px;
+}
+.container section.banner__portofolio .container__banner__portofolio .row__banner__portofolio .box__banner__portofolio .icons a i {
+  font-size: 23px;
+  color: var(--color);
+}
+.container section.about__portofolio {
+  padding: 100px 0px;
+  position: relative;
+  background-color: var(--banner-bg);
+}
+.container section.about__portofolio .container__about__portofolio {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text {
+  max-width: 500px;
+  font-family: "Inter", sans-serif;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--about-title);
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text p {
+  text-align: justify;
+  margin-top: 20px;
+  line-height: 1.8;
+  font-style: normal;
+  font-weight: 300;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text .icons__about {
+  margin-top: 40px;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text .icons__about a {
+  display: inline-block;
+  margin: 0px 10px;
+  color: var(--color);
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__text .icons__about a i {
+  font-size: 23px;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__images {
+  max-width: 500px;
+}
+.container section.about__portofolio .container__about__portofolio .row__about__portofolio .box__about .box__about__images img {
+  width: 100%;
+  height: 100%;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .title {
+  width: 100%;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .title h1 {
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--about-title);
+  margin: 30px 0px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  align-items: stretch;
+  margin-top: 20px;
+  padding: 30px 0px;
+  border-bottom: 1px solid #C2C2C2;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__date {
+  max-width: 300px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__date h1 {
+  color: var(--color-logo);
+  font-weight: 300;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience {
+  width: 700px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience ul li {
+  margin-left: 20px;
+  color: var(--text-experience);
+  line-height: 1.5rem;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience h1 {
+  color: var(--about-title);
+  font-weight: 300;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience h1.title__experience {
+  font-weight: 500;
+  color: hsl(0, 0%, 4%);
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience p {
+  line-height: 1.5;
+  color: var(--text-experience);
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience .box__description__experience a {
+  margin: 10px 0px;
+  display: block;
+  color: hsl(0, 0%, 4%);
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  align-items: center;
+  margin-top: 20px;
+  padding: 30px 0px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills {
+  width: 700px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills .box_skill_image {
+  width: 100px;
+  height: 90px;
+  margin: 10px 5px;
+  border-radius: 10px;
+}
+.container section.about__portofolio .container__about__portofolio .row__experience__portofolio .box__experience__skill .box__skills .box_skill_image img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.container section.projects__portofolio {
+  padding: 100px 0px;
+  position: relative;
+}
+.container section.projects__portofolio .container__projects__portofolio {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.container section.projects__portofolio .container__projects__portofolio .title__projects {
+  max-width: 470px;
+  font-family: "Inter", sans-serif;
+}
+.container section.projects__portofolio .container__projects__portofolio .title__projects span {
+  color: #616161;
+  font-weight: 500;
+  line-height: 28px;
+}
+.container section.projects__portofolio .container__projects__portofolio .title__projects h1 {
+  color: var(--about-title);
+  font-weight: 500;
+  font-size: 30px;
+  margin: 10px 0px;
+  line-height: 40px;
+}
+.container section.projects__portofolio .container__projects__portofolio .title__projects p {
+  font-weight: 300;
+  color: var(--color-logo);
+  line-height: 28px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 6px;
+  margin: 30px 0px;
+  background-color: var(--bg-projects);
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio {
+  width: 400px;
+  height: auto;
+  font-family: "Inter", sans-serif;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio .details {
+  width: 100%;
+  height: auto;
+  padding: 8px 0px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio .details span {
+  border: 1px solid;
+  padding: 7px 20px;
+  border-radius: 6px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio .details span:first-child {
+  margin-right: 15px;
+  color: #3267e3;
+  border: 1px solid #b1c5f6;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio .details span:last-child {
+  border: 1px solid #b8dbca;
+  color: #20573d;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio h1 {
+  margin: 20px 0px;
+  color: #000000;
+  font-size: 36px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .text__details__projects__portofolio a {
+  color: #4c4ddc;
+  text-decoration: none;
+  font-weight: 500;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .box__images__projects__portofolio {
+  width: 750px;
+  height: 300px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio .box__images__projects__portofolio img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo {
+  flex-direction: row-reverse;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 6px;
+  margin: 30px 0px;
+  background-color: var(--bg-projects);
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio {
+  width: 300px;
+  height: auto;
+  font-family: "Inter", sans-serif;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio .details {
+  width: 100%;
+  height: auto;
+  padding: 8px 0px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio .details span {
+  border: 1px solid;
+  padding: 7px 20px;
+  border-radius: 6px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio .details span:first-child {
+  margin-right: 15px;
+  color: #3267e3;
+  border: 1px solid #b1c5f6;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio .details span:last-child {
+  border: 1px solid #b8dbca;
+  color: #20573d;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio h1 {
+  margin: 20px 0px;
+  color: #000000;
+  font-size: 36px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .text__details__projects__portofolio a {
+  color: #4c4ddc;
+  text-decoration: none;
+  font-weight: 500;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .box__images__projects__portofolio {
+  width: 750px;
+  height: 300px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo .box__images__projects__portofolio img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .none {
+  display: none;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolioo.block {
+  display: block;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 6px;
+  margin: 30px 0px;
+  background-color: var(--bg-projects);
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio.block {
+  display: block;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 6px;
+  margin: 30px 0px;
+  background-color: var(--bg-projects);
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .box__project__portofolio.block .text__details__projects__portofolio {
+  width: 300px;
+  height: auto;
+  font-family: "Inter", sans-serif;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .btn__projects {
+  margin-top: 30px;
+}
+.container section.projects__portofolio .container__projects__portofolio .row__projects__portofolio .btn__projects button.btn__projectss {
+  display: block;
+  width: 200px;
+  padding: 15px 10px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  background-color: #4c4ddc;
+  color: var(--header-nav);
+}
+.container section.projects__portofolio .modal__gallery {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: none;
+  left: 0;
+  bottom: 0;
+  background-color: var(--banner-bg);
+  z-index: 300;
+  padding: 40px;
+}
+.container section.projects__portofolio .modal__gallery .fa-close {
+  font-size: 25px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.container section.projects__portofolio .modal__gallery .modal__content__gallery {
+  margin: 0px auto;
+  width: 100%;
+  height: 90%;
+  margin-top: 20px;
+}
+.container section.projects__portofolio .modal__gallery .modal__content__gallery img {
+  width: 100%;
+  height: 100%;
+}
+.container section.contact__portofolio {
+  padding: 100px 0px;
+  position: relative;
+  background-color: var(--banner-bg);
+}
+.container section.contact__portofolio .container__contact__portofolio {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio {
+  max-width: 500px;
+  height: auto;
+  font-family: "Inter", sans-serif;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio h1 {
+  font-weight: 500;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio p {
+  color: #757575;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 10px 0px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio .icons__contact {
+  margin: 30px 0px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio .icons__contact i {
+  display: block;
+  margin: 20px 0px;
+  color: var(--color);
+  font-size: 25px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .text__contact__portofolio .icons__contact i span {
+  font-family: "Inter", sans-serif;
+  color: var(--color-logo);
+  font-size: 15px;
+  font-weight: 300;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio {
+  width: 500px;
+  height: auto;
+  padding: 30px;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio h1 {
+  color: var(--color);
+  font-weight: 500;
+  margin: 20px 0px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form {
+  width: 100%;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input label {
+  display: block;
+  color: var(--color-logo);
+  font-weight: 400;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=text],
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group .input input[type=email] {
+  padding: 7px 20px;
+  margin: 10px 0px;
+  border: 1px solid #C2C2C2;
+  border-radius: 6px;
+  outline: none;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group:nth-child(2) {
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group:nth-child(2) label {
+  display: block;
+  color: var(--color-logo);
+  font-weight: 400;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form .input__group:nth-child(2) textarea {
+  width: 100%;
+  height: 84px;
+  margin: 10px 0px;
+  border: 1px solid #C2C2C2;
+  border-radius: 6px;
+  padding: 5px;
+}
+.container section.contact__portofolio .container__contact__portofolio .row__contact__portofolio .box__form__contact__portofolio form button.btn__form {
+  display: block;
+  width: 100%;
+  padding: 10px 7px;
+  background-color: var(--color);
+  outline: none;
+  border: none;
+  color: #ffffff;
+  margin: 15px 0px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.container footer {
+  padding: 50px 0px;
+  position: relative;
+}
+.container footer .container__footer {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.container footer .container__footer .row__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+.container footer .container__footer .row__footer .footer__logo .logo a {
+  display: block;
+  line-height: 1.5;
+  text-decoration: none;
+  font-weight: 500;
+  color: #000000;
+}
+.container footer .container__footer .row__footer .footer__logo span {
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+  color: #757575;
+}
+.container footer .container__footer .row__footer .footer__link a {
+  text-decoration: none;
+  margin: 0px 10px;
+  color: var(--about-title);
+  font-weight: 500;
+}
+
+.container.containerElements {
+  display: none;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=style.css.map */

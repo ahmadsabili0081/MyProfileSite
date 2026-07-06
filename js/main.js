@@ -20,10 +20,10 @@ $(function(){
   })();
  
   /* ================= THEME TOGGLE ================= */
-  htmlEl.setAttribute('data-theme', 'light');
+  htmlEl.setAttribute('data-theme', 'dark');
   $('#themeToggle').on('click', function(){
     var current = htmlEl.getAttribute('data-theme');
-    var next = current === 'light' ? 'dark' : 'light';
+    var next = current === 'dark' ? 'light' : 'dark';
     htmlEl.setAttribute('data-theme', next);
     if(!reduceMotion){
       gsap.fromTo(this, {rotate:-15}, {rotate:0, duration:.5, ease:'back.out(2)'});

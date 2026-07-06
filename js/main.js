@@ -478,20 +478,53 @@ $(function(){
  
   setTimeout(function(){ ScrollTrigger.refresh(); }, 300);
 
-  var CHAT_API_URL = 'https://portofolio-chat-backend.vercel.app/api/chat';
+     var CHAT_API_URL = 'https://portofolio-chat-backend.vercel.app/api/chat';
  
   var $wrap = $('.chat-fab-wrap');
   var $fab = $('#chatFab');
+  var $panel = $('#chatPanel');
   var $messages = $('#chatMessages');
   var $input = $('#chatInput');
   var $send = $('#chatSend');
   var history = []; // {role: 'user'|'assistant', content: '...'}
   var opened = false;
+  var mobileMQ = window.matchMedia('(max-width:980px)');
+ 
+  // On mobile, the site's own navbar becomes a floating pill anchored to the
+  // bottom of the screen (see .navbar in responsive.css), and the theme
+  // toggle repositions itself above it. The chat bubble + panel need the
+  // same treatment so they never overlap or get hidden behind that nav.
+  function positionChatWidget(){
+    if(!mobileMQ.matches){
+      $wrap.css('bottom', '');
+      $panel.css({ bottom:'', top:'' });
+      return;
+    }
+    var navEl = document.getElementById('navbar');
+    var navBottomOffset = 16; // must match .navbar's bottom value in CSS
+    var gap = 14;
+    var navSpace = navEl ? (navBottomOffset + navEl.offsetHeight + gap) : 90;
+ 
+    $wrap.css('bottom', navSpace + 'px');
+ 
+    // Panel is a fixed bottom sheet on mobile: anchor its bottom edge just
+    // above the bubble, and let max-height (from CSS) handle the top.
+    var fabH = $fab.outerHeight() || 58;
+    $panel.css({ bottom:(navSpace + fabH + 12) + 'px', top:'auto' });
+  }
+  positionChatWidget();
+  $(window).on('resize orientationchange', positionChatWidget);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(positionChatWidget);
+  }
  
   $fab.on('click', function(){
     opened = !opened;
     $wrap.toggleClass('open', opened);
-    if(opened){ setTimeout(function(){ $input.trigger('focus'); }, 250); }
+    if(opened){
+      positionChatWidget();
+      setTimeout(function(){ $input.trigger('focus'); }, 250);
+    }
   });
  
   function addMessage(text, cls){
@@ -539,6 +572,5 @@ $(function(){
   $input.on('keydown', function(e){
     if(e.key === 'Enter') sendMessage();
   });
-
 
 });

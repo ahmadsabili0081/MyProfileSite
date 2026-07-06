@@ -479,7 +479,7 @@ $(function(){
   setTimeout(function(){ ScrollTrigger.refresh(); }, 300);
 
 
-    var CHAT_API_URL = 'https://your-project.vercel.app/api/chat';
+    var CHAT_API_URL = 'https://portofolio-chat-backend.vercel.app/api/chat';
  
   var $messages = document.getElementById('chatMessages');
   var $input = document.getElementById('chatInput');

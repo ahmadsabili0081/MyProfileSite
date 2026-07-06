@@ -478,58 +478,67 @@ $(function(){
  
   setTimeout(function(){ ScrollTrigger.refresh(); }, 300);
 
-
-    var CHAT_API_URL = 'https://portofolio-chat-backend.vercel.app/api/chat';
+  var CHAT_API_URL = 'https://portofolio-chat-backend.vercel.app/api/chat';
  
-  var $messages = document.getElementById('chatMessages');
-  var $input = document.getElementById('chatInput');
-  var $send = document.getElementById('chatSend');
+  var $wrap = $('.chat-fab-wrap');
+  var $fab = $('#chatFab');
+  var $messages = $('#chatMessages');
+  var $input = $('#chatInput');
+  var $send = $('#chatSend');
   var history = []; // {role: 'user'|'assistant', content: '...'}
+  var opened = false;
+ 
+  $fab.on('click', function(){
+    opened = !opened;
+    $wrap.toggleClass('open', opened);
+    if(opened){ setTimeout(function(){ $input.trigger('focus'); }, 250); }
+  });
  
   function addMessage(text, cls){
-    var div = document.createElement('div');
-    div.className = 'chat-msg ' + cls;
-    div.textContent = text;
-    $messages.appendChild(div);
-    $messages.scrollTop = $messages.scrollHeight;
-    return div;
+    var $msg = $('<div class="chat-msg ' + cls + '"></div>').text(text);
+    $messages.append($msg);
+    $messages.scrollTop($messages[0].scrollHeight);
+    return $msg;
   }
  
-  async function sendMessage(){
-    var text = $input.value.trim();
+  function sendMessage(){
+    var text = $input.val().trim();
     if(!text) return;
-    $input.value = '';
-    $send.disabled = true;
+    $input.val('');
+    $send.prop('disabled', true);
  
     addMessage(text, 'user');
     history.push({ role: 'user', content: text });
-    var loadingEl = addMessage('Mengetik...', 'bot loading');
+    var $loading = addMessage('Mengetik...', 'bot loading');
  
-    try{
-      var res = await fetch(CHAT_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history: history.slice(0, -1) })
-      });
-      var data = await res.json();
-      loadingEl.remove();
- 
-      if(data.reply){
+    $.ajax({
+      url: CHAT_API_URL,
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ message: text, history: history.slice(0, -1) })
+    })
+    .done(function(data){
+      $loading.remove();
+      if(data && data.reply){
         addMessage(data.reply, 'bot');
         history.push({ role: 'assistant', content: data.reply });
       } else {
         addMessage('Maaf, ada gangguan. Coba lagi ya, atau langsung email ke ahmadsabili0081@gmail.com', 'bot');
       }
-    } catch(err){
-      loadingEl.remove();
+    })
+    .fail(function(){
+      $loading.remove();
       addMessage('Gagal terhubung ke server. Coba lagi nanti.', 'bot');
-    } finally {
-      $send.disabled = false;
-    }
+    })
+    .always(function(){
+      $send.prop('disabled', false);
+    });
   }
  
-  $send.addEventListener('click', sendMessage);
-  $input.addEventListener('keydown', function(e){
+  $send.on('click', sendMessage);
+  $input.on('keydown', function(e){
     if(e.key === 'Enter') sendMessage();
   });
+
+
 });

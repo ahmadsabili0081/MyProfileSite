@@ -395,7 +395,8 @@
     #pageLoader{transition:none;}
     .loader-ring{animation:none;}
   }
-.chat-fab-wrap{ position:fixed; right:24px; bottom:24px; z-index:200; }
+
+    .chat-fab-wrap{ position:fixed; right:24px; bottom:24px; z-index:200; }
  
 .chat-fab{
   width:58px; height:58px; border-radius:50%; border:none;
@@ -455,4 +456,29 @@
 @media (max-width:480px){
   .chat-fab-wrap{ right:16px; bottom:16px; }
   .chat-panel{ width:calc(100vw - 32px); }
+}
+ 
+/* ---- Mobile: site switches to a floating bottom nav + repositioned theme
+   toggle below 980px (see the site's own responsive.css). The chat bubble
+   needs to sit above that nav instead of overlapping it, and the panel
+   becomes a full-width bottom sheet so it can never get clipped or hidden
+   behind the nav bar. ---- */
+@media (max-width:980px){
+  .chat-fab-wrap{
+    right:16px;
+    /* JS sets this dynamically to sit just above the floating bottom nav,
+       matching how the site already positions its own theme toggle */
+    bottom:16px;
+  }
+  .chat-fab{ width:52px; height:52px; }
+  .chat-fab svg{ width:21px; height:21px; }
+ 
+  .chat-panel{
+    position:fixed; left:12px; right:12px; bottom:auto; top:auto;
+    width:auto; max-width:none;
+    /* anchored from the bottom via JS (see positionChatPanel), so it always
+       clears the floating nav + safe-area inset regardless of keyboard state */
+    max-height:min(70vh, 560px);
+  }
+  .chat-messages{ max-height:none; flex:1; min-height:140px; }
 }

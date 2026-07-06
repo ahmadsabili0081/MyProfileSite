@@ -19,12 +19,27 @@ $(function(){
     });
   })();
  
-  /* ================= THEME TOGGLE ================= */
-  htmlEl.setAttribute('data-theme', 'light');
+  /* ================= THEME TOGGLE (remembers your last choice) ================= */
+  var THEME_COLORS = { light:'#F5F4FA', dark:'#121218' };
+  function updateMetaThemeColor(theme){
+    $('#metaThemeColor').attr('content', THEME_COLORS[theme] || THEME_COLORS.light);
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem('portfolio-theme'); } catch(e){ /* storage blocked, fall back below */ }
+  if(savedTheme === 'dark' || savedTheme === 'light'){
+    htmlEl.setAttribute('data-theme', savedTheme);
+  } else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    htmlEl.setAttribute('data-theme', 'dark');
+  } else {
+    htmlEl.setAttribute('data-theme', 'light');
+  }
+  updateMetaThemeColor(htmlEl.getAttribute('data-theme'));
   $('#themeToggle').on('click', function(){
     var current = htmlEl.getAttribute('data-theme');
     var next = current === 'dark' ? 'light' : 'dark';
     htmlEl.setAttribute('data-theme', next);
+    updateMetaThemeColor(next);
+    try { localStorage.setItem('portfolio-theme', next); } catch(e){ /* ignore if storage unavailable */ }
     if(!reduceMotion){
       gsap.fromTo(this, {rotate:-15}, {rotate:0, duration:.5, ease:'back.out(2)'});
     }
@@ -56,6 +71,7 @@ $(function(){
     currentLang = lang;
     updateProjectTags();
     if(typeof renderDurations === 'function'){ renderDurations(); }
+    if(typeof initTypedRoles === 'function'){ initTypedRoles(lang); }
     $('#langToggle').attr('data-active-lang', lang);
     $('#langToggle .lang-id').toggleClass('active', lang === 'id');
     $('#langToggle .lang-en').toggleClass('active', lang === 'en');
@@ -65,6 +81,32 @@ $(function(){
   $('#langToggle').on('click', function(){
     applyLang(currentLang === 'id' ? 'en' : 'id');
   });
+
+  /* ================= TYPED ROLES (hero line, cycles through a few roles) ================= */
+  var typedInstance = null;
+  var TYPED_STRINGS = {
+    id: ['Front-End Developer', 'React & Next.js Enthusiast', 'PHP Laravel & CodeIgniter', 'UI yang hidup & responsif'],
+    en: ['Front-End Developer', 'React & Next.js Enthusiast', 'PHP Laravel & CodeIgniter', 'Interfaces that feel alive']
+  };
+  function initTypedRoles(lang){
+    if(typeof Typed === 'undefined' || !document.getElementById('typedRoles')) return;
+    if(typedInstance){ typedInstance.destroy(); }
+    if(reduceMotion){
+      // Skip the cycling animation entirely; just show the first role as static text.
+      document.getElementById('typedRoles').textContent = TYPED_STRINGS[lang][0];
+      return;
+    }
+    typedInstance = new Typed('#typedRoles', {
+      strings: TYPED_STRINGS[lang],
+      typeSpeed: 42,
+      backSpeed: 24,
+      backDelay: 1400,
+      startDelay: 300,
+      loop: true,
+      smartBackspace: true
+    });
+  }
+  initTypedRoles(currentLang);
  
   /* ================= MOBILE CONTACTS TOGGLE ================= */
   $('#contactsToggle').on('click', function(){
@@ -82,8 +124,19 @@ $(function(){
   // need to target the right scroller depending on layout
   var mobileMQ = window.matchMedia('(max-width:980px)');
   function getScroller(){ return mobileMQ.matches ? window : '#mainContent'; }
+  // Smoothly animate back to the top of whichever element actually
+  // scrolls, instead of snapping instantly — this is what made tab
+  // switches feel like they were "jumping" before.
   function scrollToTop(){
-    if(mobileMQ.matches){ window.scrollTo(0,0); } else { $main.scrollTop(0); }
+    if(reduceMotion){
+      if(mobileMQ.matches){ window.scrollTo(0,0); } else { $main.scrollTop(0); }
+      return;
+    }
+    if(mobileMQ.matches){
+      window.scrollTo({ top:0, left:0, behavior:'smooth' });
+    } else {
+      gsap.to($main[0], { scrollTop:0, duration:.55, ease:'power2.out' });
+    }
   }
  
   // On mobile the nav is a floating pill anchored to the bottom of the
@@ -148,15 +201,16 @@ $(function(){
       return;
     }
  
-    // fade the OLD page out only — the new page's content animates in
-    // via replayReveals below, so we never animate the container itself
-    // (that was causing the "double" jump: container fade + children fade)
+    // Scroll back to the top first (smoothly), then fade the OLD page out —
+    // the new page's content animates in via replayReveals below, so we
+    // never animate the container itself (that was causing the "double"
+    // jump: container fade + children fade).
+    scrollToTop();
     gsap.to($current[0], {opacity:0, y:-14, duration:.2, ease:'power2.in', onComplete:function(){
       $current.removeClass('active');
       gsap.set($current[0], {clearProps:'opacity,y'});
       $target.addClass('active');
       gsap.set($target[0], {opacity:1, y:0});
-      scrollToTop();
       switching = false;
       ScrollTrigger.refresh();
       replayReveals($target);
@@ -180,6 +234,38 @@ $(function(){
     });
   }
   initReveals();
+
+  /* ================= SKILL BARS (fill in once scrolled into view) ================= */
+  $('.skill-block').each(function(){
+    var $block = $(this);
+    var level = parseInt($block.data('level'), 10) || 0;
+    var $fill = $block.find('.skill-fill');
+    ScrollTrigger.create({
+      trigger:$block[0], scroller:getScroller(), start:'top 90%', once:true,
+      onEnter:function(){
+        if(reduceMotion){ $fill.css('width', level + '%'); return; }
+        gsap.to($fill[0], {width:level + '%', duration:1.1, ease:'power2.out'});
+      }
+    });
+  });
+
+  /* ================= STAT COUNTERS (count up once scrolled into view) ================= */
+  $('.stat-number').each(function(){
+    var $num = $(this);
+    var target = parseInt($num.data('target'), 10) || 0;
+    var suffix = $num.data('suffix') || '';
+    ScrollTrigger.create({
+      trigger:$num[0], scroller:getScroller(), start:'top 90%', once:true,
+      onEnter:function(){
+        if(reduceMotion){ $num.text(target + suffix); return; }
+        var counter = {val:0};
+        gsap.to(counter, {
+          val:target, duration:1.3, ease:'power1.out',
+          onUpdate:function(){ $num.text(Math.round(counter.val) + suffix); }
+        });
+      }
+    });
+  });
  
   /* timeline progress line */
   ScrollTrigger.create({
@@ -191,10 +277,24 @@ $(function(){
   // Reads each "Mon YYYY – Mon YYYY" range straight out of the .tl-date text
   // and appends a small "X thn Y bln" / "X yr Y mo" badge — no hardcoded
   // numbers to keep in sync if the dates in the HTML ever change.
+  // Ranges that are still ongoing are written as "Saat ini <year>" (or
+  // "Present"/"Now"/"Current") instead of a real month name — those are
+  // resolved against today's actual date rather than parsed as a month.
   var MONTHS_ID = {jan:0, feb:1, mar:2, apr:3, mei:4, jun:5, jul:6, agu:7, sep:8, okt:9, nov:10, des:11};
+  var PRESENT_RE = /saat|present|now|current/i;
   function parseIdDate(str){
-    var parts = str.trim().toLowerCase().split(/\s+/);
-    return { month: MONTHS_ID[parts[0].slice(0,3)], year: parseInt(parts[1], 10) };
+    var raw = str.trim();
+    var lower = raw.toLowerCase();
+    if(PRESENT_RE.test(lower)){
+      var today = new Date();
+      return { month: today.getMonth(), year: today.getFullYear() };
+    }
+    var parts = lower.split(/\s+/);
+    var yearMatch = lower.match(/\d{4}/);
+    return {
+      month: MONTHS_ID[parts[0].slice(0,3)],
+      year: yearMatch ? parseInt(yearMatch[0], 10) : NaN
+    };
   }
   function calcDurationMonths(startStr, endStr){
     var s = parseIdDate(startStr), e = parseIdDate(endStr);
@@ -230,9 +330,10 @@ $(function(){
   renderDurations();
 
   /* ================= EXPERIENCE ON-SCROLL ANIMATION ================= */
-  // Each card slides in from alternating sides while its dot pops in with a
-  // bouncy ease, timed slightly after the card starts — a small orchestrated
-  // moment per entry rather than a single flat fade.
+  // Each card slides in from alternating sides with a soft blur-to-focus
+  // and a gentle scale-up, while its dot pops in with a bouncy ease
+  // timed slightly after the card starts — a small orchestrated moment
+  // per entry rather than a single flat fade.
   function playTlItem($item){
     var dotEl = $item.find('.tl-dot')[0], cardEl = $item.find('.tl-card')[0];
     if(reduceMotion){
@@ -241,14 +342,14 @@ $(function(){
     }
     var tl = gsap.timeline({defaults:{ease:'power3.out'}});
     tl.to(dotEl, {scale:1, opacity:1, duration:.4, ease:'back.out(2.4)'})
-      .to(cardEl, {opacity:1, x:0, y:0, duration:.65}, '-=0.2');
+      .to(cardEl, {opacity:1, x:0, y:0, scale:1, filter:'blur(0px)', duration:.75, ease:'power3.out'}, '-=0.25');
   }
   function initTimelineScrollFx(){
     $('.tl-item').each(function(i){
       var $item = $(this);
       var cardEl = $item.find('.tl-card')[0], dotEl = $item.find('.tl-dot')[0];
       if(reduceMotion) return;
-      gsap.set(cardEl, {opacity:0, x: i % 2 === 0 ? -46 : 46, y:14});
+      gsap.set(cardEl, {opacity:0, x: i % 2 === 0 ? -46 : 46, y:16, scale:.94, filter:'blur(5px)'});
       gsap.set(dotEl, {scale:0, opacity:0, transformOrigin:'50% 50%'});
       ScrollTrigger.create({
         trigger:$item[0], scroller:getScroller(), start:'top 88%',
@@ -330,8 +431,12 @@ $(function(){
       );
       $grid.append($card);
       $card.find('img').on('load', function(){ $(this).addClass('loaded'); });
-      gsap.fromTo($card[0], {opacity:0, y:24}, {opacity:1, y:0, duration:.5, ease:'power3.out',
-        scrollTrigger:{trigger:$card[0], scroller:getScroller(), start:'top 94%'}});
+      // Playful "pop in" entrance: scales up from slightly small + rotated
+      // and settles into place with a light bounce, instead of a flat fade.
+      gsap.fromTo($card[0],
+        {opacity:0, y:34, scale:.9, rotate:-1.5},
+        {opacity:1, y:0, scale:1, rotate:0, duration:.65, ease:'back.out(1.6)',
+          scrollTrigger:{trigger:$card[0], scroller:getScroller(), start:'top 94%'}});
     });
   }
  

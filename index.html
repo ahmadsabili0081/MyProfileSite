@@ -22,14 +22,10 @@
 
 <body>
   
+ 
 <div id="pageLoader">
   <div class="loader-ring"></div>
 </div>
- 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
-</button>
  
 <div class="app">
   <aside class="sidebar">
@@ -42,15 +38,15 @@
       </div>
       <div style="position:relative; z-index:1;">
         <h1 class="profile-name">Ahmad Sabili Alghifari</h1>
-        <span class="profile-title">Front-End Developer</span>
+        <span class="profile-title">Pengembang Front-End</span>
       </div>
     </div>
  
-    <div class="avail-badge"><span class="dot"></span> Available for work</div>
+    <div class="avail-badge"><span class="dot"></span> Tersedia untuk kerja</div>
     <hr class="sidebar-divider" />
  
     <button class="contacts-toggle" id="contactsToggle">
-      Contact info
+      Info kontak
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
  
@@ -61,7 +57,7 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
-        <div class="contact-text"><div class="label">Location</div><div class="val">Tangerang, Indonesia</div></div>
+        <div class="contact-text"><div class="label">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
@@ -80,16 +76,34 @@
       <a class="icon-btn" href="https://www.linkedin.com/in/ahmadsabilialghifari/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.24 8.25h4.5V23H.24V8.25ZM8.25 8.25h4.31v2.01h.06c.6-1.13 2.07-2.33 4.27-2.33 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.33 0-2.68 1.82-2.68 3.7V23h-4.5V8.25Z"/></svg></a>
     </div>
  
-    <a class="cv-btn" href="cv/AhmadSabili_CV.pdf" target="_blank" rel="noopener">↓ Download CV</a>
+    <a class="cv-btn" href="cv/AhmadSabili_CV.pdf" target="_blank" rel="noopener">↓ Unduh CV</a>
   </aside>
  
   <div class="main-content" id="mainContent">
     <nav class="navbar" id="navbar">
-      <button class="nav-link active" data-page="about">About</button>
-      <button class="nav-link" data-page="resume">Resume</button>
-      <button class="nav-link" data-page="portfolio">Portfolio</button>
-      <button class="nav-link" data-page="contact">Contact</button>
-      <span class="nav-indicator" id="navIndicator"></span>
+      <div class="nav-links-scroll" id="navLinksScroll">
+        <button class="nav-link active" data-page="about">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg></span>
+          <span class="nav-label">Tentang</span>
+        </button>
+        <button class="nav-link" data-page="resume">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7 3.5Z"/><path d="M14 3.5V8h4"/><path d="M9 12.5h6M9 15.5h6M9 9.5h2.5"/></svg></span>
+          <span class="nav-label">Resume</span>
+        </button>
+        <button class="nav-link" data-page="portfolio">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg></span>
+          <span class="nav-label">Portofolio</span>
+        </button>
+        <button class="nav-link" data-page="contact">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3 6.5 12 13l9-6.5"/></svg></span>
+          <span class="nav-label">Kontak</span>
+        </button>
+        <span class="nav-indicator" id="navIndicator"></span>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
     </nav>
  
     <div class="page-viewport">
@@ -97,38 +111,38 @@
       <!-- ABOUT -->
       <article class="page active" data-page="about">
         <span class="bg-blob" style="background:var(--primary); width:340px; height:340px; top:0; right:-100px;"></span>
-        <span class="page-eyebrow reveal-el">// about</span>
-        <h2 class="page-title reveal-el">Building interfaces that feel <span class="grad-text">alive</span>.</h2>
-        <p class="intro-text reveal-el">I'm a recent <strong>Information Systems</strong> graduate with hands-on
-          internship experience as a Front-End Developer. I like turning a design file into an interface that
-          actually behaves the way it looks — the transitions, the spacing, the little details that make a site
-          feel finished. Based in <strong>Tangerang, Indonesia</strong>, open to front-end and web developer roles.</p>
+        <span class="page-eyebrow reveal-el">// tentang</span>
+        <h2 class="page-title reveal-el">Membangun antarmuka yang terasa <span class="grad-text">hidup</span>.</h2>
+        <p class="intro-text reveal-el">Aku lulusan baru <strong>Sistem Informasi</strong> dengan pengalaman magang
+          langsung sebagai Front-End Developer. Aku suka mengubah file desain jadi antarmuka yang benar-benar
+          berfungsi sesuai tampilannya — transisi, spacing, sampai detail kecil yang bikin sebuah situs terasa
+          selesai. Berbasis di <strong>Tangerang, Indonesia</strong>, terbuka untuk posisi front-end dan web developer.</p>
  
-        <h3 class="block-heading reveal-el">What I'm doing</h3>
+        <h3 class="block-heading reveal-el">Yang sedang aku kerjakan</h3>
         <div class="service-grid">
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-            <div class="service-title">Front-End Development</div>
-            <div class="service-desc">Turning designs into responsive, interactive interfaces with clean, maintainable code.</div>
+            <div class="service-title">Pengembangan Front-End</div>
+            <div class="service-desc">Mengubah desain jadi antarmuka yang responsif dan interaktif dengan kode yang rapi dan mudah dirawat.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-            <div class="service-title">Responsive Layouts</div>
-            <div class="service-desc">Making sure every layout holds up cleanly across desktop, tablet, and mobile.</div>
+            <div class="service-title">Layout Responsif</div>
+            <div class="service-desc">Memastikan setiap layout tetap rapi di desktop, tablet, maupun mobile.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
-            <div class="service-title">Motion &amp; Interaction</div>
-            <div class="service-desc">Adding transitions and micro-interactions that make an interface feel finished.</div>
+            <div class="service-title">Motion &amp; Interaksi</div>
+            <div class="service-desc">Menambahkan transisi dan micro-interaction yang bikin sebuah antarmuka terasa selesai.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
-            <div class="service-title">CMS &amp; Backend Hookup</div>
-            <div class="service-desc">Connecting interfaces to PHP/CodeIgniter and MySQL for dynamic, data-driven pages.</div>
+            <div class="service-title">Integrasi CMS &amp; Backend</div>
+            <div class="service-desc">Menghubungkan antarmuka ke PHP/CodeIgniter dan MySQL untuk halaman yang dinamis dan berbasis data.</div>
           </div>
         </div>
  
-        <h3 class="block-heading reveal-el">Tools &amp; technologies</h3>
+        <h3 class="block-heading reveal-el">Perangkat &amp; teknologi</h3>
         <div class="tools-marquee reveal-el">
           <div class="tools-track">
             <div class="chip-row">
@@ -167,8 +181,8 @@
       <article class="page" data-page="resume">
         <span class="bg-blob" style="background:var(--accent); width:300px; height:300px; top:10%; left:-100px;"></span>
         <span class="page-eyebrow reveal-el">// resume</span>
-        <h2 class="page-title reveal-el">Where I've worked</h2>
-        <p class="intro-text reveal-el">Every role I've taken on, from most recent to first.</p>
+        <h2 class="page-title reveal-el">Tempat aku pernah bekerja</h2>
+        <p class="intro-text reveal-el">Setiap peran yang pernah aku jalani, dari yang paling baru sampai yang pertama.</p>
  
         <div class="timeline">
           <div class="timeline-track"><div class="timeline-progress" id="tlProgress"></div></div>
@@ -176,13 +190,13 @@
           <div class="tl-item reveal-el">
             <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-meta"><span class="tl-date">Dec 2023 – Feb 2024</span><span class="tl-badge">Internship</span></div>
+              <div class="tl-meta"><span class="tl-date">Des 2023 – Feb 2024</span><span class="tl-badge">Magang</span></div>
               <div class="tl-org">Reach U Solutions</div>
               <div class="tl-title">Web Developer</div>
               <ul class="tl-list">
-                <li>Learned HMVC (Hierarchical Model View Controller), separating control into clean modules</li>
-                <li>Built and shipped new features on an ongoing project per mentor specifications</li>
-                <li>Practiced structured, well-organized code following mentor guidance</li>
+                <li>Mempelajari HMVC (Hierarchical Model View Controller), memisahkan kontrol ke dalam modul-modul yang rapi</li>
+                <li>Membangun dan merilis fitur baru pada proyek yang sedang berjalan sesuai arahan mentor</li>
+                <li>Berlatih menulis kode yang terstruktur dan rapi sesuai bimbingan mentor</li>
               </ul>
             </div>
           </div>
@@ -190,14 +204,14 @@
           <div class="tl-item reveal-el">
             <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-meta"><span class="tl-date">Oct 2021 – Dec 2021</span><span class="tl-badge">Internship</span></div>
+              <div class="tl-meta"><span class="tl-date">Okt 2021 – Des 2021</span><span class="tl-badge">Magang</span></div>
               <div class="tl-org">PT. Ardiona Sinergi Kreatif</div>
               <div class="tl-title">Front-End Developer</div>
               <ul class="tl-list">
-                <li>Turned UI design elements into functioning website interfaces</li>
-                <li>Added animations and transitions to lift the overall user experience</li>
-                <li>Ensured layouts worked cleanly across desktop, tablet, and mobile</li>
-                <li>Learned the CSS BEM (Block-Element-Modifier) writing methodology</li>
+                <li>Mengubah elemen desain UI menjadi antarmuka situs yang berfungsi</li>
+                <li>Menambahkan animasi dan transisi untuk meningkatkan pengalaman pengguna</li>
+                <li>Memastikan layout tetap rapi di desktop, tablet, dan mobile</li>
+                <li>Mempelajari metodologi penulisan CSS BEM (Block-Element-Modifier)</li>
               </ul>
             </div>
           </div>
@@ -205,13 +219,13 @@
           <div class="tl-item reveal-el">
             <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-meta"><span class="tl-date">Sep 2021 – Oct 2021</span><span class="tl-badge">Part time</span></div>
+              <div class="tl-meta"><span class="tl-date">Sep 2021 – Okt 2021</span><span class="tl-badge">Paruh waktu</span></div>
               <div class="tl-org">Vaksinasi Merdeka Polda Metro Jaya</div>
-              <div class="tl-title">Data Entry</div>
+              <div class="tl-title">Entri Data</div>
               <ul class="tl-list">
-                <li>Entered vaccinated individuals' data into the P-Care system</li>
-                <li>Reported data to central authorities for monitoring purposes</li>
-                <li>Made sure all equipment needed for the process was ready and available</li>
+                <li>Menginput data individu yang sudah divaksin ke sistem P-Care</li>
+                <li>Melaporkan data ke pihak berwenang pusat untuk keperluan pemantauan</li>
+                <li>Memastikan semua peralatan yang dibutuhkan selama proses selalu siap dan tersedia</li>
               </ul>
             </div>
           </div>
@@ -219,13 +233,13 @@
           <div class="tl-item reveal-el">
             <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-meta"><span class="tl-date">Jul 2018 – Dec 2021</span><span class="tl-badge">Full time</span></div>
+              <div class="tl-meta"><span class="tl-date">Jul 2018 – Des 2021</span><span class="tl-badge">Penuh waktu</span></div>
               <div class="tl-org">Paud Nurul Iman</div>
-              <div class="tl-title">Administrative Staff</div>
+              <div class="tl-title">Staf Administrasi</div>
               <ul class="tl-list">
-                <li>Managed incoming and outgoing student data in the Dapodik application</li>
-                <li>Prepared correspondence for students, parents, and school activities</li>
-                <li>Assisted the principal in preparing the school budget using ARKAS</li>
+                <li>Mengelola data siswa yang masuk dan keluar di aplikasi Dapodik</li>
+                <li>Menyiapkan surat-menyurat untuk siswa, orang tua, dan kegiatan sekolah</li>
+                <li>Membantu kepala sekolah menyiapkan anggaran sekolah menggunakan ARKAS</li>
               </ul>
             </div>
           </div>
@@ -265,7 +279,7 @@
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
-              <div class="contact-text"><div class="label">Location</div><div class="val">Tangerang, Indonesia</div></div>
+              <div class="contact-text"><div class="label">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.32.9 11.6c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.66 5.34-5.2 5.62.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A11.1 11.1 0 0 0 23.1 11.6C23.1 5.32 18.27.5 12 .5Z"/></svg></div>

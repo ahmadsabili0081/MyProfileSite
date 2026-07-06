@@ -3,8 +3,7 @@ $(function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var htmlEl = document.documentElement;
   var $main = $('#mainContent');
- 
-  /* ================= PAGE LOADER ================= */
+
   (function(){
     var start = Date.now();
     var MIN_MS = 450; // avoid a jarring flash if everything loads instantly
@@ -45,7 +44,7 @@ $(function(){
     }
   });
 
-  /* ================= LANGUAGE TOGGLE (ID / EN) ================= */
+
   var currentLang = 'id';
   var TAG_LABELS = {
     internship: { id:'Website Magang', en:'Website Internship' },
@@ -82,17 +81,15 @@ $(function(){
     applyLang(currentLang === 'id' ? 'en' : 'id');
   });
 
-  /* ================= TYPED ROLES (hero line, cycles through a few roles) ================= */
   var typedInstance = null;
   var TYPED_STRINGS = {
-    id: ['Front-End Developer', 'React & Next.js Enthusiast', 'PHP Laravel & CodeIgniter', 'UI yang hidup & responsif'],
-    en: ['Front-End Developer', 'React & Next.js Enthusiast', 'PHP Laravel & CodeIgniter', 'Interfaces that feel alive']
+    id: ['Front-End Developer', 'React', 'PHP Laravel & CodeIgniter', 'UI yang hidup & responsif'],
+    en: ['Front-End Developer', 'React', 'PHP Laravel & CodeIgniter', 'Interfaces that feel alive']
   };
   function initTypedRoles(lang){
     if(typeof Typed === 'undefined' || !document.getElementById('typedRoles')) return;
     if(typedInstance){ typedInstance.destroy(); }
     if(reduceMotion){
-      // Skip the cycling animation entirely; just show the first role as static text.
       document.getElementById('typedRoles').textContent = TYPED_STRINGS[lang][0];
       return;
     }
@@ -235,19 +232,7 @@ $(function(){
   }
   initReveals();
 
-  /* ================= SKILL BARS (fill in once scrolled into view) ================= */
-  $('.skill-block').each(function(){
-    var $block = $(this);
-    var level = parseInt($block.data('level'), 10) || 0;
-    var $fill = $block.find('.skill-fill');
-    ScrollTrigger.create({
-      trigger:$block[0], scroller:getScroller(), start:'top 90%', once:true,
-      onEnter:function(){
-        if(reduceMotion){ $fill.css('width', level + '%'); return; }
-        gsap.to($fill[0], {width:level + '%', duration:1.1, ease:'power2.out'});
-      }
-    });
-  });
+
 
   /* ================= STAT COUNTERS (count up once scrolled into view) ================= */
   $('.stat-number').each(function(){

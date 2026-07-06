@@ -14,505 +14,284 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238B5CF6'/%3E%3Cstop offset='1' stop-color='%23FF9F5A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='%23121218'/%3E%3Ccircle cx='50' cy='50' r='30' fill='url(%23g)'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <div class="btn__top">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  
+<div id="pageLoader">
+  <div class="loader-ring"></div>
+</div>
+ 
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+</button>
+ 
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-blob" style="background:var(--primary); top:-40px; left:-60px;"></div>
+    <div class="sidebar-blob" style="background:var(--accent); bottom:-30px; right:-70px;"></div>
+    <div class="sidebar-head">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <img src="images/profile.png" alt="Ahmad Sabili Alghifari" />
+      </div>
+      <div style="position:relative; z-index:1;">
+        <h1 class="profile-name">Ahmad Sabili Alghifari</h1>
+        <span class="profile-title">Front-End Developer</span>
+      </div>
     </div>
-    <!-- header -->
-    <header>
-      <div class="container__header">
-        <div class="logo">
-          <a href="#home">Ahmad <span>Sabili</span></a>
-        </div>
-        <nav class="portofolio__nav">
-          <ul class="portofolio__nav__list">
-            <li data-tab-target="#home" class="list__portofolio active">
-              <i class="fa fa-home" aria-hidden="true"></i><a class="link__portofolio__nav" href="#home">Home</a>
-            </li>
-            <li data-tab-target="#works" class="list__portofolio">
-              <i class="fa fa-suitcase" aria-hidden="true"></i><a class="link__portofolio__nav" href="#works">Works</a>
-            </li>
-            <li data-tab-target="#about" class="list__portofolio">
-              <i class="fa fa-user" aria-hidden="true"></i><a class="link__portofolio__nav" href="#about">About</a>
-            </li>
-            <li data-tab-target="#contact" class="list__portofolio">
-              <i class="fa fa-phone" aria-hidden="true"></i><a class="link__portofolio__nav" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
+ 
+    <div class="avail-badge"><span class="dot"></span> Available for work</div>
+    <hr class="sidebar-divider" />
+ 
+    <button class="contacts-toggle" id="contactsToggle">
+      Contact info
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+ 
+    <div class="contact-list" id="contactList">
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3 6.5 12 13l9-6.5"/></svg></div>
+        <div class="contact-text"><div class="label">Email</div><div class="val">ahmadsabili0081@gmail.com</div></div>
       </div>
-    </header>
-    <!-- banner__portofolio -->
-    <section class="banner__portofolio active" data-tab-content id="home">
-      <div class="container__banner__portofolio">
-        <div class="row__banner__portofolio">
-          <div class="box__banner__portofolio">
-            <h1 class="tobe">Hi! I'm</h1>
-            <h1>Ahmad Sabili Alghifari</h1>
-            <div class="description">
-              <span class="type"></span>
-            </div>
-            <button class="btn__banner">
-              <a target="blank_" href="cv/AhmadSabili_CV.pdf">My Resume</a>
-            </button>
-            <div class="icons">
-              <a target="_blank" href="https://github.com/ahmadsabili0081/"><i class="fa-brands fa-github"></i></a>
-              <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i
-                  class="fa-solid fa-envelope"></i></a>
-              <a target="_blank" href="https://www.instagram.com/ahmdsblii/"><i class="fa-brands fa-instagram"></i></a>
-              <a target="_blank" href="https://www.linkedin.com/in/ahmadsabilialghifari/"><i
-                  class="fa-brands fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+        <div class="contact-text"><div class="label">Location</div><div class="val">Tangerang, Indonesia</div></div>
       </div>
-    </section>
-    <!-- about__portofolio -->
-    <section class="about__portofolio" data-tab-content id="about">
-      <div class="container__about__portofolio">
-        <div class="row__about__portofolio">
-          <div class="box__about">
-            <div class="box__about__text">
-              <h1>Hi There👋🏻...</h1>
-              <p>
-                A recent Information Systems graduate with internship experience as a
-                Front End Developer. Skilled in translating design concepts into userfriendly websites. With a proactive
-                approach to problem-solving and a
-                commitment to staying updated with the latest technologies, I am ready
-                to contribute effectively to innovative projects in front-end development.<br /><br />
-              </p>
-              <div class="icons__about">
-                <a target="_blank" href="https://github.com/ahmadsabili0081/"><i class="fa-brands fa-github"></i></a>
-                <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new"><i
-                    class="fa-solid fa-envelope"></i></a>
-                <a target="_blank" href="https://www.instagram.com/ahmdsblii/"><i
-                    class="fa-brands fa-instagram"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/ahmadsabilialghifari/"><i
-                    class="fa-brands fa-linkedin"></i></a>
-              </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
+        <div class="contact-text"><div class="label">Instagram</div><div class="val">@ahmdsblii</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.32.9 11.6c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.66 5.34-5.2 5.62.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A11.1 11.1 0 0 0 23.1 11.6C23.1 5.32 18.27.5 12 .5Z"/></svg></div>
+        <div class="contact-text"><div class="label">GitHub</div><div class="val">ahmadsabili0081</div></div>
+      </div>
+    </div>
+ 
+    <div class="social-row">
+      <a class="icon-btn" href="https://github.com/ahmadsabili0081/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.32.9 11.6c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.66 5.34-5.2 5.62.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A11.1 11.1 0 0 0 23.1 11.6C23.1 5.32 18.27.5 12 .5Z"/></svg></a>
+      <a class="icon-btn" href="mailto:ahmadsabili0081@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3 6.5 12 13l9-6.5"/></svg></a>
+      <a class="icon-btn" href="https://www.instagram.com/ahmdsblii/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/ahmadsabilialghifari/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.24 8.25h4.5V23H.24V8.25ZM8.25 8.25h4.31v2.01h.06c.6-1.13 2.07-2.33 4.27-2.33 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.33 0-2.68 1.82-2.68 3.7V23h-4.5V8.25Z"/></svg></a>
+    </div>
+ 
+    <a class="cv-btn" href="cv/AhmadSabili_CV.pdf" target="_blank" rel="noopener">↓ Download CV</a>
+  </aside>
+ 
+  <div class="main-content" id="mainContent">
+    <nav class="navbar" id="navbar">
+      <button class="nav-link active" data-page="about">About</button>
+      <button class="nav-link" data-page="resume">Resume</button>
+      <button class="nav-link" data-page="portfolio">Portfolio</button>
+      <button class="nav-link" data-page="contact">Contact</button>
+      <span class="nav-indicator" id="navIndicator"></span>
+    </nav>
+ 
+    <div class="page-viewport">
+ 
+      <!-- ABOUT -->
+      <article class="page active" data-page="about">
+        <span class="bg-blob" style="background:var(--primary); width:340px; height:340px; top:0; right:-100px;"></span>
+        <span class="page-eyebrow reveal-el">// about</span>
+        <h2 class="page-title reveal-el">Building interfaces that feel <span class="grad-text">alive</span>.</h2>
+        <p class="intro-text reveal-el">I'm a recent <strong>Information Systems</strong> graduate with hands-on
+          internship experience as a Front-End Developer. I like turning a design file into an interface that
+          actually behaves the way it looks — the transitions, the spacing, the little details that make a site
+          feel finished. Based in <strong>Tangerang, Indonesia</strong>, open to front-end and web developer roles.</p>
+ 
+        <h3 class="block-heading reveal-el">What I'm doing</h3>
+        <div class="service-grid">
+          <div class="service-card reveal-el">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+            <div class="service-title">Front-End Development</div>
+            <div class="service-desc">Turning designs into responsive, interactive interfaces with clean, maintainable code.</div>
+          </div>
+          <div class="service-card reveal-el">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+            <div class="service-title">Responsive Layouts</div>
+            <div class="service-desc">Making sure every layout holds up cleanly across desktop, tablet, and mobile.</div>
+          </div>
+          <div class="service-card reveal-el">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+            <div class="service-title">Motion &amp; Interaction</div>
+            <div class="service-desc">Adding transitions and micro-interactions that make an interface feel finished.</div>
+          </div>
+          <div class="service-card reveal-el">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
+            <div class="service-title">CMS &amp; Backend Hookup</div>
+            <div class="service-desc">Connecting interfaces to PHP/CodeIgniter and MySQL for dynamic, data-driven pages.</div>
+          </div>
+        </div>
+ 
+        <h3 class="block-heading reveal-el">Tools &amp; technologies</h3>
+        <div class="tools-marquee reveal-el">
+          <div class="tools-track">
+            <div class="chip-row">
+              <div class="chip"><img src="images/js.png" alt="">JavaScript</div>
+              <div class="chip"><img src="images/React.webp" alt="">React</div>
+              <div class="chip"><svg viewBox="0 0 24 24" fill="var(--ink)" xmlns="http://www.w3.org/2000/svg"><path d="M11.5725 0c-.1763 0-.3098.0013-.3584.0067-.0516.0053-.2159.021-.3636.0328-3.4088.3073-6.6017 2.1463-8.624 4.9728C1.1004 6.584.3802 8.3666.1082 10.255c-.0962.659-.108.8537-.108 1.7474s.012 1.0884.108 1.7476c.652 4.506 3.8591 8.2919 8.2087 9.6945.7789.2511 1.6.4223 2.5337.5255.3636.04 1.9354.04 2.299 0 1.6117-.1783 2.9772-.577 4.3237-1.2643.2065-.1056.2464-.1337.2183-.1573-.0188-.0139-.8987-1.1938-1.9543-2.62l-1.919-2.592-2.4047-3.5583c-1.3231-1.9564-2.4117-3.556-2.4211-3.556-.0094-.0026-.0187 1.5787-.0235 3.509-.0067 3.3802-.0093 3.5162-.0516 3.596-.061.115-.108.1618-.2064.2134-.075.0374-.1408.0445-.495.0445h-.406l-.1078-.068a.4383.4383 0 01-.1572-.1712l-.0493-.1056.0053-4.703.0067-4.7054.0726-.0915c.0376-.0493.1174-.1125.1736-.143.0962-.047.1338-.0517.5396-.0517.4787 0 .5584.0187.6827.1547.0353.0377 1.3373 1.9987 2.895 4.3608a10760.433 10760.433 0 004.7344 7.1706l1.9002 2.8782.096-.0633c.8518-.5536 1.7525-1.3418 2.4657-2.1627 1.5179-1.7429 2.4963-3.868 2.8247-6.134.0961-.6591.1078-.854.1078-1.7475 0-.8937-.012-1.0884-.1078-1.7476-.6522-4.506-3.8592-8.2919-8.2087-9.6945-.7672-.2487-1.5836-.42-2.4985-.5232-.169-.0176-1.0835-.0366-1.6123-.037zm4.0685 7.217c.3473 0 .4082.0053.4857.047.1127.0562.204.1642.237.2767.0186.061.0234 1.3653.0186 4.3044l-.0067 4.2175-.7436-1.14-.7461-1.14v-3.066c0-1.982.0093-3.0963.0234-3.1502.0375-.1313.1196-.2346.2323-.2955.0961-.0494.1313-.054.4997-.054z"/></svg>Next.js</div>
+              <div class="chip"><svg viewBox="0 0 448 512" fill="#5FA04E" xmlns="http://www.w3.org/2000/svg"><path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.1 389.2.7 376.3.7 362.4V149.3c0-13.8 7.4-26.8 19.4-33.7L204.6 9c11.7-6.6 27.2-6.6 38.8 0l184.7 106.7c12 6.9 19.4 19.8 19.4 33.7v213.1c0 13.8-7.4 26.7-19.4 33.7L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm149.1-210.1c0-39.9-27-50.5-83.7-58-57.4-7.6-63.2-11.5-63.2-24.9 0-11.1 4.9-25.9 47.4-25.9 37.9 0 51.9 8.2 57.7 33.8.5 2.4 2.7 4.2 5.2 4.2h24c1.5 0 2.9-.6 3.9-1.7s1.5-2.6 1.4-4.1c-3.7-44.1-33-64.6-92.2-64.6-52.7 0-84.1 22.2-84.1 59.5 0 40.4 31.3 51.6 81.8 56.6 60.5 5.9 65.2 14.8 65.2 26.7 0 20.6-16.6 29.4-55.5 29.4-48.9 0-59.6-12.3-63.2-36.6-.4-2.6-2.6-4.5-5.3-4.5h-23.9c-3 0-5.3 2.4-5.3 5.3 0 31.1 16.9 68.2 97.8 68.2 58.4-.1 92-23.2 92-63.4z"/></svg>Node.js</div>
+              <div class="chip"><img src="images/php.png" alt="">PHP</div>
+              <div class="chip"><svg viewBox="0 0 512 512" fill="#FF2D20" xmlns="http://www.w3.org/2000/svg"><path d="M504.4,115.83a5.72,5.72,0,0,0-.28-.68,8.52,8.52,0,0,0-.53-1.25,6,6,0,0,0-.54-.71,9.36,9.36,0,0,0-.72-.94c-.23-.22-.52-.4-.77-.6a8.84,8.84,0,0,0-.9-.68L404.4,55.55a8,8,0,0,0-8,0L300.12,111h0a8.07,8.07,0,0,0-.88.69,7.68,7.68,0,0,0-.78.6,8.23,8.23,0,0,0-.72.93c-.17.24-.39.45-.54.71a9.7,9.7,0,0,0-.52,1.25c-.08.23-.21.44-.28.68a8.08,8.08,0,0,0-.28,2.08V223.18l-80.22,46.19V63.44a7.8,7.8,0,0,0-.28-2.09c-.06-.24-.2-.45-.28-.68a8.35,8.35,0,0,0-.52-1.24c-.14-.26-.37-.47-.54-.72a9.36,9.36,0,0,0-.72-.94,9.46,9.46,0,0,0-.78-.6,9.8,9.8,0,0,0-.88-.68h0L115.61,1.07a8,8,0,0,0-8,0L11.34,56.49h0a6.52,6.52,0,0,0-.88.69,7.81,7.81,0,0,0-.79.6,8.15,8.15,0,0,0-.71.93c-.18.25-.4.46-.55.72a7.88,7.88,0,0,0-.51,1.24,6.46,6.46,0,0,0-.29.67,8.18,8.18,0,0,0-.28,2.1v329.7a8,8,0,0,0,4,6.95l192.5,110.84a8.83,8.83,0,0,0,1.33.54c.21.08.41.2.63.26a7.92,7.92,0,0,0,4.1,0c.2-.05.37-.16.55-.22a8.6,8.6,0,0,0,1.4-.58L404.4,400.09a8,8,0,0,0,4-6.95V287.88l92.24-53.11a8,8,0,0,0,4-7V117.92A8.63,8.63,0,0,0,504.4,115.83ZM111.6,17.28h0l80.19,46.15-80.2,46.18L31.41,63.44Zm88.25,60V278.6l-46.53,26.79-33.69,19.4V123.5l46.53-26.79Zm0,412.78L23.37,388.5V77.32L57.06,96.7l46.52,26.8V338.68a6.94,6.94,0,0,0,.12.9,8,8,0,0,0,.16,1.18h0a5.92,5.92,0,0,0,.38.9,6.38,6.38,0,0,0,.42,1v0a8.54,8.54,0,0,0,.6.78,7.62,7.62,0,0,0,.66.84l0,0c.23.22.52.38.77.58a8.93,8.93,0,0,0,.86.66l0,0,0,0,92.19,52.18Zm8-106.17-80.06-45.32,84.09-48.41,92.26-53.11,80.13,46.13-58.8,33.56Zm184.52,4.57L215.88,490.11V397.8L346.6,323.2l45.77-26.15Zm0-119.13L358.68,250l-46.53-26.79V131.79l33.69,19.4L392.37,178Zm8-105.28-80.2-46.17,80.2-46.16,80.18,46.15Zm8,105.28V178L455,151.19l33.68-19.4v91.39h0Z"/></svg>Laravel</div>
+              <div class="chip"><img src="images/codegniter.webp" alt="">CodeIgniter</div>
+              <div class="chip"><img src="images/Mysql.png" alt="">MySQL</div>
+              <div class="chip"><img src="images/sass.png" alt="">Sass</div>
+              <div class="chip"><img src="images/bs.webp" alt="">Bootstrap</div>
+              <div class="chip"><img src="images/visual.png" alt="">VS Code</div>
+              <div class="chip"><img src="images/git.png" alt="">Git</div>
             </div>
-            <div class="box__about__images">
-              <img src="images/profile.png" alt="profile" />
+            <div class="chip-row" aria-hidden="true">
+              <div class="chip"><img src="images/js.png" alt="">JavaScript</div>
+              <div class="chip"><img src="images/React.webp" alt="">React</div>
+              <div class="chip"><svg viewBox="0 0 24 24" fill="var(--ink)" xmlns="http://www.w3.org/2000/svg"><path d="M11.5725 0c-.1763 0-.3098.0013-.3584.0067-.0516.0053-.2159.021-.3636.0328-3.4088.3073-6.6017 2.1463-8.624 4.9728C1.1004 6.584.3802 8.3666.1082 10.255c-.0962.659-.108.8537-.108 1.7474s.012 1.0884.108 1.7476c.652 4.506 3.8591 8.2919 8.2087 9.6945.7789.2511 1.6.4223 2.5337.5255.3636.04 1.9354.04 2.299 0 1.6117-.1783 2.9772-.577 4.3237-1.2643.2065-.1056.2464-.1337.2183-.1573-.0188-.0139-.8987-1.1938-1.9543-2.62l-1.919-2.592-2.4047-3.5583c-1.3231-1.9564-2.4117-3.556-2.4211-3.556-.0094-.0026-.0187 1.5787-.0235 3.509-.0067 3.3802-.0093 3.5162-.0516 3.596-.061.115-.108.1618-.2064.2134-.075.0374-.1408.0445-.495.0445h-.406l-.1078-.068a.4383.4383 0 01-.1572-.1712l-.0493-.1056.0053-4.703.0067-4.7054.0726-.0915c.0376-.0493.1174-.1125.1736-.143.0962-.047.1338-.0517.5396-.0517.4787 0 .5584.0187.6827.1547.0353.0377 1.3373 1.9987 2.895 4.3608a10760.433 10760.433 0 004.7344 7.1706l1.9002 2.8782.096-.0633c.8518-.5536 1.7525-1.3418 2.4657-2.1627 1.5179-1.7429 2.4963-3.868 2.8247-6.134.0961-.6591.1078-.854.1078-1.7475 0-.8937-.012-1.0884-.1078-1.7476-.6522-4.506-3.8592-8.2919-8.2087-9.6945-.7672-.2487-1.5836-.42-2.4985-.5232-.169-.0176-1.0835-.0366-1.6123-.037zm4.0685 7.217c.3473 0 .4082.0053.4857.047.1127.0562.204.1642.237.2767.0186.061.0234 1.3653.0186 4.3044l-.0067 4.2175-.7436-1.14-.7461-1.14v-3.066c0-1.982.0093-3.0963.0234-3.1502.0375-.1313.1196-.2346.2323-.2955.0961-.0494.1313-.054.4997-.054z"/></svg>Next.js</div>
+              <div class="chip"><svg viewBox="0 0 448 512" fill="#5FA04E" xmlns="http://www.w3.org/2000/svg"><path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.1 389.2.7 376.3.7 362.4V149.3c0-13.8 7.4-26.8 19.4-33.7L204.6 9c11.7-6.6 27.2-6.6 38.8 0l184.7 106.7c12 6.9 19.4 19.8 19.4 33.7v213.1c0 13.8-7.4 26.7-19.4 33.7L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm149.1-210.1c0-39.9-27-50.5-83.7-58-57.4-7.6-63.2-11.5-63.2-24.9 0-11.1 4.9-25.9 47.4-25.9 37.9 0 51.9 8.2 57.7 33.8.5 2.4 2.7 4.2 5.2 4.2h24c1.5 0 2.9-.6 3.9-1.7s1.5-2.6 1.4-4.1c-3.7-44.1-33-64.6-92.2-64.6-52.7 0-84.1 22.2-84.1 59.5 0 40.4 31.3 51.6 81.8 56.6 60.5 5.9 65.2 14.8 65.2 26.7 0 20.6-16.6 29.4-55.5 29.4-48.9 0-59.6-12.3-63.2-36.6-.4-2.6-2.6-4.5-5.3-4.5h-23.9c-3 0-5.3 2.4-5.3 5.3 0 31.1 16.9 68.2 97.8 68.2 58.4-.1 92-23.2 92-63.4z"/></svg>Node.js</div>
+              <div class="chip"><img src="images/php.png" alt="">PHP</div>
+              <div class="chip"><svg viewBox="0 0 512 512" fill="#FF2D20" xmlns="http://www.w3.org/2000/svg"><path d="M504.4,115.83a5.72,5.72,0,0,0-.28-.68,8.52,8.52,0,0,0-.53-1.25,6,6,0,0,0-.54-.71,9.36,9.36,0,0,0-.72-.94c-.23-.22-.52-.4-.77-.6a8.84,8.84,0,0,0-.9-.68L404.4,55.55a8,8,0,0,0-8,0L300.12,111h0a8.07,8.07,0,0,0-.88.69,7.68,7.68,0,0,0-.78.6,8.23,8.23,0,0,0-.72.93c-.17.24-.39.45-.54.71a9.7,9.7,0,0,0-.52,1.25c-.08.23-.21.44-.28.68a8.08,8.08,0,0,0-.28,2.08V223.18l-80.22,46.19V63.44a7.8,7.8,0,0,0-.28-2.09c-.06-.24-.2-.45-.28-.68a8.35,8.35,0,0,0-.52-1.24c-.14-.26-.37-.47-.54-.72a9.36,9.36,0,0,0-.72-.94,9.46,9.46,0,0,0-.78-.6,9.8,9.8,0,0,0-.88-.68h0L115.61,1.07a8,8,0,0,0-8,0L11.34,56.49h0a6.52,6.52,0,0,0-.88.69,7.81,7.81,0,0,0-.79.6,8.15,8.15,0,0,0-.71.93c-.18.25-.4.46-.55.72a7.88,7.88,0,0,0-.51,1.24,6.46,6.46,0,0,0-.29.67,8.18,8.18,0,0,0-.28,2.1v329.7a8,8,0,0,0,4,6.95l192.5,110.84a8.83,8.83,0,0,0,1.33.54c.21.08.41.2.63.26a7.92,7.92,0,0,0,4.1,0c.2-.05.37-.16.55-.22a8.6,8.6,0,0,0,1.4-.58L404.4,400.09a8,8,0,0,0,4-6.95V287.88l92.24-53.11a8,8,0,0,0,4-7V117.92A8.63,8.63,0,0,0,504.4,115.83ZM111.6,17.28h0l80.19,46.15-80.2,46.18L31.41,63.44Zm88.25,60V278.6l-46.53,26.79-33.69,19.4V123.5l46.53-26.79Zm0,412.78L23.37,388.5V77.32L57.06,96.7l46.52,26.8V338.68a6.94,6.94,0,0,0,.12.9,8,8,0,0,0,.16,1.18h0a5.92,5.92,0,0,0,.38.9,6.38,6.38,0,0,0,.42,1v0a8.54,8.54,0,0,0,.6.78,7.62,7.62,0,0,0,.66.84l0,0c.23.22.52.38.77.58a8.93,8.93,0,0,0,.86.66l0,0,0,0,92.19,52.18Zm8-106.17-80.06-45.32,84.09-48.41,92.26-53.11,80.13,46.13-58.8,33.56Zm184.52,4.57L215.88,490.11V397.8L346.6,323.2l45.77-26.15Zm0-119.13L358.68,250l-46.53-26.79V131.79l33.69,19.4L392.37,178Zm8-105.28-80.2-46.17,80.2-46.16,80.18,46.15Zm8,105.28V178L455,151.19l33.68-19.4v91.39h0Z"/></svg>Laravel</div>
+              <div class="chip"><img src="images/codegniter.webp" alt="">CodeIgniter</div>
+              <div class="chip"><img src="images/Mysql.png" alt="">MySQL</div>
+              <div class="chip"><img src="images/sass.png" alt="">Sass</div>
+              <div class="chip"><img src="images/bs.webp" alt="">Bootstrap</div>
+              <div class="chip"><img src="images/visual.png" alt="">VS Code</div>
+              <div class="chip"><img src="images/git.png" alt="">Git</div>
             </div>
           </div>
         </div>
-        <!-- experience -->
-        <div class="row__experience__portofolio">
-          <div class="title">
-            <h1>Experience</h1>
-          </div>
-          <div class="box__experience">
-            <div class="box__date">
-              <h1>01 Oct 2021 - 31 Dec 2021</h1>
-            </div>
-            <div class="box__description__experience">
-              <h1>PT.Ardiona Sinergi Kreatif</h1>
-              <br />
-              <h1 class="title__experience">Front-End Developer - Internship</h1>
-              <br />
-              <ul>
-                <li>Implementing UI design elements into website interfaces.</li>
-                <li>Adding animations, transitions, and other visual effects to enhance
-                  user experience quality and make websites more engaging.</li>
-                <li>Ensuring websites function well across various devices and screen
-                  sizes, including desktop, tablet, and mobile.</li>
-                <li> Learning the CSS BEM (Block-Element-Modifier) writing
-                  methodology.</li>
-              </ul>
-              <a target="_blank" href="https://drive.google.com/file/d/1smtvwH-uHWheEMylh5IiSNybyuulfoOm/view">Click
-                Here</a>
-            </div>
-          </div>
-          <div class="box__experience">
-            <div class="box__date">
-              <h1>20 Sep 2021 - 01 Oct 2021</h1>
-            </div>
-            <div class="box__description__experience">
-              <h1>Vaksinasi Merdeka Polda Metro Jaya</h1>
-              <br />
-              <h1 class="title__experience">Data Entry - Part Time</h1>
-              <br />
-              <ul>
-                <li>Entering vaccinated individuals' data into the P-Care system.</li>
-                <li>Reporting vaccinated individuals data to the central authority for
-                  reporting and monitoring purpose.</li>
-                <li>Ensuring all necessary equipment for the vaccination process is
-                  available.</li>
-              </ul>
-              <a target="_blank" href="https://drive.google.com/file/d/1SACFor89hHv0ZoyLYtp8KJHt_z60vyWk/view">Click
-                Here</a>
-            </div>
-          </div>
-          <div class="box__experience">
-            <div class="box__date">
-              <h1>17 July 2018 - 31 Dec 2021</h1>
-            </div>
-            <div class="box__description__experience">
-              <h1>Paud Nurul Iman</h1>
-              <br />
-              <h1 class="title__experience">Administrative Staff - Full Time</h1>
-              <br />
-              <ul>
-                <li>Input student data for incoming and outgoing students in the Dapodik
-                  application.</li>
-                <li>Prepare correspondence for school purposes, including letters to
-                  students, parents, or other parties related to school activitie.</li>
-                <li>Assist the school principal in designing the school budget using the
-                  ARKAS application, including collecting necessary data and
-                  information and assisting in the budget preparation process.</li>
-              </ul>
-              <a href="https://drive.google.com/file/d/1uzcQQClyzzkTm_zF8VU_5hOBF3H0B1Up/view?usp=sharing"
-                target="_blank">Click Here</a>
-            </div>
-          </div>
-          <div class="box__experience">
-            <div class="box__date">
-              <h1>01 Dec 2023 - 29 Feb 2024</h1>
-            </div>
-            <div class="box__description__experience">
-              <h1>Reach U Solutions</h1>
-              <br />
-              <h1 class="title__experience">Web Developer - Internship</h1>
-              <br />
-              <ul>
-                <li>Learned HMVC (Hierarchical Model View Controller) methodology for
-                  related projects, involving control separation into separate modules.</li>
-                <li>Developed and added new features to the ongoing website project,
-                  following project requirements and specifications set by the mentor.</li>
-                <li>Learned structured, neat code writing to implement guidance
-                  provided by the mentor.</li>
+      </article>
+ 
+      <!-- RESUME -->
+      <article class="page" data-page="resume">
+        <span class="bg-blob" style="background:var(--accent); width:300px; height:300px; top:10%; left:-100px;"></span>
+        <span class="page-eyebrow reveal-el">// resume</span>
+        <h2 class="page-title reveal-el">Where I've worked</h2>
+        <p class="intro-text reveal-el">Every role I've taken on, from most recent to first.</p>
+ 
+        <div class="timeline">
+          <div class="timeline-track"><div class="timeline-progress" id="tlProgress"></div></div>
+ 
+          <div class="tl-item reveal-el">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-date">Dec 2023 – Feb 2024</span><span class="tl-badge">Internship</span></div>
+              <div class="tl-org">Reach U Solutions</div>
+              <div class="tl-title">Web Developer</div>
+              <ul class="tl-list">
+                <li>Learned HMVC (Hierarchical Model View Controller), separating control into clean modules</li>
+                <li>Built and shipped new features on an ongoing project per mentor specifications</li>
+                <li>Practiced structured, well-organized code following mentor guidance</li>
               </ul>
             </div>
           </div>
-          <div class="box__experience__skill">
-            <div class="box__title">
-              <h1>Tools & Skills</h1>
+ 
+          <div class="tl-item reveal-el">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-date">Oct 2021 – Dec 2021</span><span class="tl-badge">Internship</span></div>
+              <div class="tl-org">PT. Ardiona Sinergi Kreatif</div>
+              <div class="tl-title">Front-End Developer</div>
+              <ul class="tl-list">
+                <li>Turned UI design elements into functioning website interfaces</li>
+                <li>Added animations and transitions to lift the overall user experience</li>
+                <li>Ensured layouts worked cleanly across desktop, tablet, and mobile</li>
+                <li>Learned the CSS BEM (Block-Element-Modifier) writing methodology</li>
+              </ul>
             </div>
-            <div class="box__skills">
-              <div class="box_skill_image" id="box1">
-                <img src="images/php.png" alt="">
-              </div>
-              <div class="box_skill_image" id="box2">
-                <img src="images/codegniter.webp" alt="">
-              </div>
-              <div class="box_skill_image" id="box3">
-                <img src="images/js.png" alt="">
-              </div>
-              <div class="box_skill_image" id="box4">
-                <img src="images/React.webp" alt="">
-              </div>
-              <div class="box_skill_image" id="box5">
-                <img src="images/Mysql.png" alt="">
-              </div>
-              <div class="box_skill_image" id="box6">
-                <img src="images/sass.png" alt="">
-              </div>
-              <div class="box_skill_image" id="box7">
-                <img src="images/bs.webp" alt="">
-              </div>
-              <div class="box_skill_image" id="box8">
-                <img src="images/visual.png" alt="">
-              </div>
-              <div class="box_skill_image" id="box9">
-                <img src="images/git.png" alt="">
-              </div>
+          </div>
+ 
+          <div class="tl-item reveal-el">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-date">Sep 2021 – Oct 2021</span><span class="tl-badge">Part time</span></div>
+              <div class="tl-org">Vaksinasi Merdeka Polda Metro Jaya</div>
+              <div class="tl-title">Data Entry</div>
+              <ul class="tl-list">
+                <li>Entered vaccinated individuals' data into the P-Care system</li>
+                <li>Reported data to central authorities for monitoring purposes</li>
+                <li>Made sure all equipment needed for the process was ready and available</li>
+              </ul>
+            </div>
+          </div>
+ 
+          <div class="tl-item reveal-el">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta"><span class="tl-date">Jul 2018 – Dec 2021</span><span class="tl-badge">Full time</span></div>
+              <div class="tl-org">Paud Nurul Iman</div>
+              <div class="tl-title">Administrative Staff</div>
+              <ul class="tl-list">
+                <li>Managed incoming and outgoing student data in the Dapodik application</li>
+                <li>Prepared correspondence for students, parents, and school activities</li>
+                <li>Assisted the principal in preparing the school budget using ARKAS</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- projects__portofolio -->
-    <section class="projects__portofolio" data-tab-content id="works">
-      <div class="container__projects__portofolio">
-        <div class="title__projects">
-          <span>Selected Works</span>
-          <h1>
-            Here’s several web<br />
-            projects that I’ve created
-          </h1>
-          <p>
-            These web I made during my internship and some of them as a medium
-            for my learning
-          </p>
+      </article>
+ 
+      <!-- PORTFOLIO -->
+      <article class="page" data-page="portfolio">
+        <span class="bg-blob" style="background:var(--primary); width:320px; height:320px; bottom:0; right:-100px;"></span>
+        <span class="page-eyebrow reveal-el">// portfolio</span>
+        <h2 class="page-title reveal-el">Things I've built</h2>
+        <p class="intro-text reveal-el">Projects made during internships and as hands-on exercises to learn new concepts.</p>
+        <div class="filter-row reveal-el">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="internship">Internship</button>
+          <button class="filter-btn" data-filter="exercise">Exercise</button>
         </div>
-        <div class="row__projects__portofolio">
-          <div class="box__project__portofolio">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Recipe Website localStorage</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/RecipeApps/">View Site</a>
+        <div class="proj-grid" id="projGrid"></div>
+        <div class="show-more-wrap"><button class="btn-ghost" id="showMoreBtn">Show more ↓</button></div>
+      </article>
+ 
+      <!-- CONTACT -->
+      <article class="page" data-page="contact">
+        <span class="bg-blob" style="background:var(--accent); width:300px; height:300px; top:0; left:-100px;"></span>
+        <span class="page-eyebrow reveal-el">// contact</span>
+        <h2 class="page-title reveal-el">Let's get in touch</h2>
+        <p class="intro-text reveal-el">Have a project or an opportunity in mind? Send a message and I'll get back to you.</p>
+        <div class="contact-grid">
+          <div class="contact-info-card reveal-el">
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3 6.5 12 13l9-6.5"/></svg></div>
+              <div class="contact-text"><div class="label">Email</div><div class="val">ahmadsabili0081@gmail.com</div></div>
             </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/recipeApps.png" alt="recipeApps" />
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
+              <div class="contact-text"><div class="label">Instagram</div><div class="val">@ahmdsblii</div></div>
             </div>
-          </div>
-          <div class="box__project__portofolioo">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Note App localStorage</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/notesApp/">View Site</a>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+              <div class="contact-text"><div class="label">Location</div><div class="val">Tangerang, Indonesia</div></div>
             </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/notesApps.png" alt="notesApps" />
-            </div>
-          </div>
-          <div class="box__project__portofolio">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>whack-a-mole</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/pukul-tikus/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/whack-a-mole.png" alt="whack-a-mole" />
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.32.9 11.6c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.66 5.34-5.2 5.62.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A11.1 11.1 0 0 0 23.1 11.6C23.1 5.32 18.27.5 12 .5Z"/></svg></div>
+              <div class="contact-text"><div class="label">GitHub</div><div class="val">ahmadsabili0081</div></div>
             </div>
           </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Music Player</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/MusicAppss/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/MusicPlayer.png" alt="MusicPlayer" />
-            </div>
-          </div>
-          <div class="box__project__portofolio none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Osiris Landing Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/osirisLanding/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/OsirisLanding.png" alt="OsirisLanding" />
-            </div>
-          </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Movie List</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/MovieList/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/MovieList.png" alt="MovieList" />
-            </div>
-          </div>
-          <div class="box__project__portofolio none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>House Landing Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/House/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/HouseLandingEdit.png" alt="HouseLanding" />
-            </div>
-          </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>internship</span>
-              </div>
-              <h1>Ilo Landing Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/Landingpage/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/IloLanding.png" alt="IloLanding" />
-            </div>
-          </div>
-          <div class="box__project__portofolio none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Booking Book localStorage</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/BookingBook/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/bookingBook.png" alt="bookingBook" />
-            </div>
-          </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Quiz Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/quizApps/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/quizApp.png" alt="quizApp" />
-            </div>
-          </div>
-          <div class="box__project__portofolio none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Internship</span>
-              </div>
-              <h1>Adira Landing Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/AdiraLandingpage/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/AdiraLanding.png" alt="AdiraLanding" />
-            </div>
-          </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Internship</span>
-              </div>
-              <h1>Migas Landing Website</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/MigasNews/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/MigasNews.png" alt="MigasNews" />
-            </div>
-          </div>
-          <div class="box__project__portofolio none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Memory Game</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/memoryGame/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/memoryGame.png" alt="memoryGame" />
-            </div>
-          </div>
-          <div class="box__project__portofolioo none">
-            <div class="text__details__projects__portofolio">
-              <div class="details">
-                <span>Website</span>
-                <span>Exercise</span>
-              </div>
-              <h1>Todo Apps</h1>
-              <a target="_blank" href="https://ahmadsabili0081.github.io/TodoApps/">View Site</a>
-            </div>
-            <div class="box__images__projects__portofolio">
-              <img class="images-item" src="images/todoApps.png" alt="todoApps" />
-            </div>
-          </div>
-          <div class="btn__projects">
-            <button class="btn__projectss" type="button">Show More</button>
-          </div>
-        </div>
-      </div>
-      <div class="modal__gallery">
-        <i class="fa fa-close" id="modalClose" aria-hidden="true"></i>
-        <div class="modal__content__gallery" id="modal__pict"></div>
-      </div>
-    </section>
-    <!-- contact__portofolio -->
-    <section class="contact__portofolio" data-tab-content id="contact">
-      <div class="container__contact__portofolio">
-        <div class="row__contact__portofolio">
-          <div class="text__contact__portofolio">
-            <h1>Let’s get in touch!</h1>
-            <p>
-              Share with me about your thoughts or projects, maybe we can work
-              together
-            </p>
-            <div class="icons__contact">
-              <i class="fa fa-envelope-o" aria-hidden="true">
-                <span>ahmadsabili0081@gmail.com</span></i>
-              <i class="fa fa-instagram" aria-hidden="true">
-                <span>ahmdsblii</span></i>
-              <i class="fa fa-map-marker" aria-hidden="true">
-                <span>Tangerang, Indonesia</span></i>
-            </div>
-          </div>
-          <div class="box__form__contact__portofolio">
-            <h1>Feel free to contact me!</h1>
-            <form action="#">
-              <div class="input__group">
-                <div class="input">
-                  <label for="Name">Name</label>
-                  <input type="text" placeholder="Your Name" />
-                </div>
-                <div class="input">
-                  <label for="Email Address">Email Address</label>
-                  <input type="email" placeholder="Your Email Address" />
-                </div>
-              </div>
-              <div class="input__group">
-                <label for="Message">Message</label>
-                <textarea name="Message" placeholder="Tell me about your project"></textarea>
-              </div>
-              <button class="btn__form notFunctions" type="submit">
-                Send
-              </button>
+          <div class="form-card reveal-el">
+            <form id="contactForm">
+              <div class="field"><label for="fname">Name</label><input id="fname" name="name" type="text" placeholder="Your name" required /></div>
+              <div class="field"><label for="femail">Email address</label><input id="femail" name="email" type="email" placeholder="you@example.com" required /></div>
+              <div class="field"><label for="fmsg">Message</label><textarea id="fmsg" name="message" placeholder="Tell me about your project..." required></textarea></div>
+              <button type="submit" class="cv-btn" style="display:block; width:100%;">Send message →</button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
-    <footer>
-      <div class="container__footer">
-        <div class="row__footer">
-          <div class="footer__logo">
-            <div class="logo">
-              <a href="#">Ahmad Sabili Alghifari</a>
-            </div>
-            <span>Ahmad Sabili Copyright ©️
-              <script>
-                let dateYear = new Date().getFullYear();
-                document.write(dateYear);
-              </script> All rights
-              reserved
-            </span>
-          </div>
-          <div class="footer__link">
-            <a target="_blank" href="https://github.com/ahmadsabili0081/">Github</a>
-            <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email</a>
-            <a target="_blank" href="https://www.instagram.com/ahmdsblii/">Instagram</a>
-            <a target="_blank" href="https://www.linkedin.com/in/ahmadsabilialghifari/">Linkedin</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </article>
+ 
+    </div>
   </div>
+</div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
   <script src="typed.js-master/lib/typed.min.js"></script>
-  <script>
-    let typed = new Typed(".type", {
-      strings: [
-        "Junior Front-End Developer based in Indonesia.",
-      ],
-      typeSpeed: 40,
-      backSpeed: 70,
-      loop: true,
-    });
-  </script>
 </body>
 
 </html>

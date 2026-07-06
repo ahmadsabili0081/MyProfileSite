@@ -29,6 +29,42 @@ $(function(){
       gsap.fromTo(this, {rotate:-15}, {rotate:0, duration:.5, ease:'back.out(2)'});
     }
   });
+
+  /* ================= LANGUAGE TOGGLE (ID / EN) ================= */
+  var currentLang = 'id';
+  var TAG_LABELS = {
+    internship: { id:'Website Magang', en:'Website Internship' },
+    exercise:   { id:'Website Latihan', en:'Website Exercise' }
+  };
+  function updateProjectTags(){
+    $('.proj-card').each(function(){
+      var tag = $(this).data('tag');
+      var labels = TAG_LABELS[tag];
+      if(labels){ $(this).find('.proj-tag').text(labels[currentLang]); }
+    });
+  }
+  function applyLang(lang){
+    $('[data-i18n-id-html]').each(function(){
+      $(this).html($(this).attr('data-i18n-' + lang + '-html'));
+    });
+    $('[data-i18n-id]').each(function(){
+      $(this).text($(this).attr('data-i18n-' + lang));
+    });
+    $('[data-i18n-id-ph]').each(function(){
+      $(this).attr('placeholder', $(this).attr('data-i18n-' + lang + '-ph'));
+    });
+    currentLang = lang;
+    updateProjectTags();
+    if(typeof renderDurations === 'function'){ renderDurations(); }
+    $('#langToggle').attr('data-active-lang', lang);
+    $('#langToggle .lang-id').toggleClass('active', lang === 'id');
+    $('#langToggle .lang-en').toggleClass('active', lang === 'en');
+    // keep the layout indicator aligned if label widths shifted
+    moveIndicator($navLinks.filter('.active'), true);
+  }
+  $('#langToggle').on('click', function(){
+    applyLang(currentLang === 'id' ? 'en' : 'id');
+  });
  
   /* ================= MOBILE CONTACTS TOGGLE ================= */
   $('#contactsToggle').on('click', function(){
@@ -150,6 +186,98 @@ $(function(){
     trigger:'.timeline', scroller:getScroller(), start:'top 75%', end:'bottom 65%', scrub:.6,
     onUpdate:function(self){ $('#tlProgress').css('height', (self.progress*100)+'%'); }
   });
+
+  /* ================= EXPERIENCE DURATION (auto-calculated) ================= */
+  // Reads each "Mon YYYY – Mon YYYY" range straight out of the .tl-date text
+  // and appends a small "X thn Y bln" / "X yr Y mo" badge — no hardcoded
+  // numbers to keep in sync if the dates in the HTML ever change.
+  var MONTHS_ID = {jan:0, feb:1, mar:2, apr:3, mei:4, jun:5, jul:6, agu:7, sep:8, okt:9, nov:10, des:11};
+  function parseIdDate(str){
+    var parts = str.trim().toLowerCase().split(/\s+/);
+    return { month: MONTHS_ID[parts[0].slice(0,3)], year: parseInt(parts[1], 10) };
+  }
+  function calcDurationMonths(startStr, endStr){
+    var s = parseIdDate(startStr), e = parseIdDate(endStr);
+    var months = (e.year - s.year) * 12 + (e.month - s.month);
+    return months < 1 ? 1 : months;
+  }
+  function formatDuration(totalMonths, lang){
+    var y = Math.floor(totalMonths / 12), m = totalMonths % 12, parts = [];
+    if(lang === 'id'){
+      if(y > 0) parts.push(y + ' thn');
+      if(m > 0) parts.push(m + ' bln');
+    } else {
+      if(y > 0) parts.push(y + ' yr');
+      if(m > 0) parts.push(m + ' mo');
+    }
+    if(!parts.length) parts.push(lang === 'id' ? '1 bln' : '1 mo');
+    return parts.join(' ');
+  }
+  function renderDurations(){
+    $('.tl-item').each(function(){
+      var $item = $(this);
+      var range = $item.find('.tl-date').text().split('–');
+      if(range.length < 2) return;
+      var months = calcDurationMonths(range[0], range[1]);
+      var $dur = $item.find('.tl-duration');
+      if(!$dur.length){
+        $dur = $('<span class="tl-duration"></span>');
+        $item.find('.tl-badge').after($dur);
+      }
+      $dur.text(formatDuration(months, currentLang));
+    });
+  }
+  renderDurations();
+
+  /* ================= EXPERIENCE ON-SCROLL ANIMATION ================= */
+  // Each card slides in from alternating sides while its dot pops in with a
+  // bouncy ease, timed slightly after the card starts — a small orchestrated
+  // moment per entry rather than a single flat fade.
+  function playTlItem($item){
+    var dotEl = $item.find('.tl-dot')[0], cardEl = $item.find('.tl-card')[0];
+    if(reduceMotion){
+      gsap.set([dotEl, cardEl], {clearProps:'all'});
+      return;
+    }
+    var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+    tl.to(dotEl, {scale:1, opacity:1, duration:.4, ease:'back.out(2.4)'})
+      .to(cardEl, {opacity:1, x:0, y:0, duration:.65}, '-=0.2');
+  }
+  function initTimelineScrollFx(){
+    $('.tl-item').each(function(i){
+      var $item = $(this);
+      var cardEl = $item.find('.tl-card')[0], dotEl = $item.find('.tl-dot')[0];
+      if(reduceMotion) return;
+      gsap.set(cardEl, {opacity:0, x: i % 2 === 0 ? -46 : 46, y:14});
+      gsap.set(dotEl, {scale:0, opacity:0, transformOrigin:'50% 50%'});
+      ScrollTrigger.create({
+        trigger:$item[0], scroller:getScroller(), start:'top 88%',
+        once:true, onEnter:function(){ playTlItem($item); }
+      });
+    });
+  }
+  initTimelineScrollFx();
+
+  /* ================= EXPERIENCE CARD TILT (mouse-follow, GSAP quickTo) ================= */
+  if(!reduceMotion){
+    $('.tl-card').each(function(){
+      var el = this;
+      var toRotX = gsap.quickTo(el, 'rotationX', {duration:.5, ease:'power3.out'});
+      var toRotY = gsap.quickTo(el, 'rotationY', {duration:.5, ease:'power3.out'});
+      var toLift = gsap.quickTo(el, 'y', {duration:.5, ease:'power3.out'});
+      $(el).on('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        toRotY(px * 7);
+        toRotX(py * -7);
+        toLift(-4);
+      });
+      $(el).on('mouseleave', function(){
+        toRotX(0); toRotY(0); toLift(0);
+      });
+    });
+  }
  
   /* ================= AMBIENT BLOB PARALLAX ================= */
   if(!reduceMotion){
@@ -225,6 +353,7 @@ $(function(){
  
   buildAllCards();
   updateProjectVisibility();
+  updateProjectTags();
  
   $('.filter-btn').on('click', function(){
     $('.filter-btn').removeClass('active'); $(this).addClass('active');

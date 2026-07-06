@@ -477,4 +477,59 @@ $(function(){
   });
  
   setTimeout(function(){ ScrollTrigger.refresh(); }, 300);
+
+
+    var CHAT_API_URL = 'https://your-project.vercel.app/api/chat';
+ 
+  var $messages = document.getElementById('chatMessages');
+  var $input = document.getElementById('chatInput');
+  var $send = document.getElementById('chatSend');
+  var history = []; // {role: 'user'|'assistant', content: '...'}
+ 
+  function addMessage(text, cls){
+    var div = document.createElement('div');
+    div.className = 'chat-msg ' + cls;
+    div.textContent = text;
+    $messages.appendChild(div);
+    $messages.scrollTop = $messages.scrollHeight;
+    return div;
+  }
+ 
+  async function sendMessage(){
+    var text = $input.value.trim();
+    if(!text) return;
+    $input.value = '';
+    $send.disabled = true;
+ 
+    addMessage(text, 'user');
+    history.push({ role: 'user', content: text });
+    var loadingEl = addMessage('Mengetik...', 'bot loading');
+ 
+    try{
+      var res = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, history: history.slice(0, -1) })
+      });
+      var data = await res.json();
+      loadingEl.remove();
+ 
+      if(data.reply){
+        addMessage(data.reply, 'bot');
+        history.push({ role: 'assistant', content: data.reply });
+      } else {
+        addMessage('Maaf, ada gangguan. Coba lagi ya, atau langsung email ke ahmadsabili0081@gmail.com', 'bot');
+      }
+    } catch(err){
+      loadingEl.remove();
+      addMessage('Gagal terhubung ke server. Coba lagi nanti.', 'bot');
+    } finally {
+      $send.disabled = false;
+    }
+  }
+ 
+  $send.addEventListener('click', sendMessage);
+  $input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter') sendMessage();
+  });
 });

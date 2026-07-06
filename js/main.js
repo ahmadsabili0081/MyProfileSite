@@ -20,7 +20,7 @@ $(function(){
   })();
  
   /* ================= THEME TOGGLE ================= */
-  htmlEl.setAttribute('data-theme', 'dark');
+  htmlEl.setAttribute('data-theme', 'light');
   $('#themeToggle').on('click', function(){
     var current = htmlEl.getAttribute('data-theme');
     var next = current === 'dark' ? 'light' : 'dark';
@@ -40,7 +40,6 @@ $(function(){
   var $navLinks = $('.nav-link');
   var $indicator = $('#navIndicator');
   var $pages = $('.page');
-  var navbarEl = document.getElementById('navbar');
  
   // below 980px, .main-content no longer scrolls itself (see CSS),
   // the page/body scrolls instead — so ScrollTrigger and scrollTop(0)
@@ -51,15 +50,37 @@ $(function(){
     if(mobileMQ.matches){ window.scrollTo(0,0); } else { $main.scrollTop(0); }
   }
  
+  // On mobile the nav is a floating pill anchored to the bottom of the
+  // screen, and the theme toggle floats just above it (rather than
+  // overlapping it up in the corner). We measure the nav's real height
+  // instead of guessing a fixed number, so it stays correct even if the
+  // nav's height changes (longer labels, different font, etc).
+  var navbarEl = document.getElementById('navbar');
+  function positionMobileToggle(){
+    if(!mobileMQ.matches){ $('#themeToggle').css('bottom',''); return; }
+    var gap = 12;
+    var navBottomOffset = 16; // must match .navbar's bottom value in CSS
+    $('#themeToggle').css('bottom', (navBottomOffset + navbarEl.offsetHeight + gap) + 'px');
+  }
+  positionMobileToggle();
+  $(window).on('resize orientationchange', positionMobileToggle);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(positionMobileToggle);
+  }
+ 
+  // The indicator lives inside #navLinksScroll, which is itself the
+  // horizontally-scrolling element (on mobile). Using offsetLeft/offsetWidth
+  // (relative to that positioned container) instead of getBoundingClientRect
+  // means the number is already correct regardless of current scroll
+  // position, so there is no manual scrollLeft math to get wrong.
   function moveIndicator($btn, instant){
-    var navRect = navbarEl.getBoundingClientRect();
-    var btnRect = $btn[0].getBoundingClientRect();
-    var left = btnRect.left - navRect.left + navbarEl.scrollLeft;
+    var left = $btn[0].offsetLeft;
+    var width = $btn[0].offsetWidth;
     gsap.killTweensOf($indicator[0]);
     if(instant){
-      gsap.set($indicator[0], {x:left, width:btnRect.width});
+      gsap.set($indicator[0], {x:left, width:width});
     } else {
-      gsap.to($indicator[0], {x:left, width:btnRect.width, duration:.35, ease:'power2.out'});
+      gsap.to($indicator[0], {x:left, width:width, duration:.35, ease:'power2.out'});
     }
   }
   moveIndicator($navLinks.filter('.active'), true);
@@ -158,12 +179,17 @@ $(function(){
   var VISIBLE_STEP = 6, visibleCount = VISIBLE_STEP, activeFilter = 'all';
   var $grid = $('#projGrid');
  
-  function renderProjects(){
-    var filtered = projects.filter(function(p){ return activeFilter==='all' || p.tag===activeFilter; });
-    $grid.empty();
-    filtered.forEach(function(p, i){
+  // Build every card ONCE, up front. "Show more" and the filter buttons
+  // then only add/remove a "hide" class — they never destroy and rebuild
+  // DOM nodes. Recreating nodes that are already on screen is what was
+  // causing the scroll position to jump back to the top (the browser's
+  // scroll-anchoring loses its anchor point when the elements around it
+  // get replaced), plus it was needlessly re-triggering every reveal
+  // animation and reloading every image on every click.
+  function buildAllCards(){
+    projects.forEach(function(p){
       var $card = $(
-        '<a href="'+p.url+'" target="_blank" rel="noopener" class="proj-card reveal-el'+(i>=visibleCount?' hide':'')+'">'+
+        '<a href="'+p.url+'" target="_blank" rel="noopener" class="proj-card reveal-el" data-tag="'+p.tag+'">'+
           '<div class="proj-thumb">'+
             '<img src="'+p.img+'" alt="'+p.title+'" loading="lazy" />'+
             '<div class="proj-overlay"><span class="view">↗ View site</span></div>'+
@@ -176,19 +202,36 @@ $(function(){
       );
       $grid.append($card);
       $card.find('img').on('load', function(){ $(this).addClass('loaded'); });
-      gsap.fromTo($card[0], {opacity:0, y:24}, {opacity:1, y:0, duration:.5, delay:(i%VISIBLE_STEP)*0.05, ease:'power3.out',
+      gsap.fromTo($card[0], {opacity:0, y:24}, {opacity:1, y:0, duration:.5, ease:'power3.out',
         scrollTrigger:{trigger:$card[0], scroller:getScroller(), start:'top 94%'}});
     });
-    $('#showMoreBtn').toggle(filtered.length > visibleCount);
-    ScrollTrigger.refresh();
   }
+ 
+  function updateProjectVisibility(){
+    var shown = 0;
+    $grid.children('.proj-card').each(function(){
+      var $c = $(this);
+      var matches = activeFilter === 'all' || $c.data('tag') === activeFilter;
+      if(!matches){
+        $c.addClass('hide');
+      } else {
+        shown++;
+        $c.toggleClass('hide', shown > visibleCount);
+      }
+    });
+    var totalMatching = projects.filter(function(p){ return activeFilter==='all' || p.tag===activeFilter; }).length;
+    $('#showMoreBtn').toggle(totalMatching > visibleCount);
+  }
+ 
+  buildAllCards();
+  updateProjectVisibility();
+ 
   $('.filter-btn').on('click', function(){
     $('.filter-btn').removeClass('active'); $(this).addClass('active');
     activeFilter = $(this).data('filter'); visibleCount = VISIBLE_STEP;
-    renderProjects();
+    updateProjectVisibility();
   });
-  $('#showMoreBtn').on('click', function(){ visibleCount += VISIBLE_STEP; renderProjects(); });
-  renderProjects();
+  $('#showMoreBtn').on('click', function(){ visibleCount += VISIBLE_STEP; updateProjectVisibility(); });
  
   /* ================= CONTACT FORM -> MAILTO ================= */
   $('#contactForm').on('submit', function(e){

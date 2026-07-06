@@ -38,15 +38,22 @@
       </div>
       <div style="position:relative; z-index:1;">
         <h1 class="profile-name">Ahmad Sabili Alghifari</h1>
-        <span class="profile-title">Web Developer</span>
+        <span class="profile-title" data-i18n-id="Pengembang Web" data-i18n-en="Web Developer">Web Developer</span>
       </div>
     </div>
  
-    <div class="avail-badge"><span class="dot"></span> Tersedia untuk kerja</div>
+    <div class="avail-row">
+      <div class="avail-badge"><span class="dot"></span> <span data-i18n-id="Tersedia untuk kerja" data-i18n-en="Available for work">Tersedia untuk kerja</span></div>
+      <button class="lang-toggle" id="langToggle" data-active-lang="id" aria-label="Ganti bahasa / Switch language" title="ID / EN">
+        <span class="lang-opt lang-id active">ID</span>
+        <span class="lang-opt lang-en">EN</span>
+        <span class="lang-thumb" aria-hidden="true"></span>
+      </button>
+    </div>
     <hr class="sidebar-divider" />
  
     <button class="contacts-toggle" id="contactsToggle">
-      Info kontak
+      <span data-i18n-id="Info kontak" data-i18n-en="Contact info">Info kontak</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
  
@@ -57,7 +64,7 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
-        <div class="contact-text"><div class="label">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
+        <div class="contact-text"><div class="label" data-i18n-id="Lokasi" data-i18n-en="Location">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></div>
@@ -76,15 +83,20 @@
       <a class="icon-btn" href="https://www.linkedin.com/in/ahmadsabilialghifari/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.24 8.25h4.5V23H.24V8.25ZM8.25 8.25h4.31v2.01h.06c.6-1.13 2.07-2.33 4.27-2.33 4.56 0 5.4 3 5.4 6.9V23h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.33 0-2.68 1.82-2.68 3.7V23h-4.5V8.25Z"/></svg></a>
     </div>
  
-    <a class="cv-btn" href="cv/AhmadSabili_CV.pdf" target="_blank" rel="noopener">↓ Unduh CV</a>
+    <a class="cv-btn" href="cv/AhmadSabili_CV.pdf" target="_blank" rel="noopener" data-i18n-id="↓ Unduh CV" data-i18n-en="↓ Download CV">↓ Unduh CV</a>
   </aside>
  
   <div class="main-content" id="mainContent">
+    <div class="ambient-layer" aria-hidden="true">
+      <span class="ambient-orb orb-a"></span>
+      <span class="ambient-orb orb-b"></span>
+      <span class="ambient-orb orb-c"></span>
+    </div>
     <nav class="navbar" id="navbar">
       <div class="nav-links-scroll" id="navLinksScroll">
         <button class="nav-link active" data-page="about">
           <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg></span>
-          <span class="nav-label">Tentang</span>
+          <span class="nav-label" data-i18n-id="Tentang" data-i18n-en="About">Tentang</span>
         </button>
         <button class="nav-link" data-page="resume">
           <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7 3.5Z"/><path d="M14 3.5V8h4"/><path d="M9 12.5h6M9 15.5h6M9 9.5h2.5"/></svg></span>
@@ -92,11 +104,11 @@
         </button>
         <button class="nav-link" data-page="portfolio">
           <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg></span>
-          <span class="nav-label">Portofolio</span>
+          <span class="nav-label" data-i18n-id="Portofolio" data-i18n-en="Portfolio">Portofolio</span>
         </button>
         <button class="nav-link" data-page="contact">
           <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3 6.5 12 13l9-6.5"/></svg></span>
-          <span class="nav-label">Kontak</span>
+          <span class="nav-label" data-i18n-id="Kontak" data-i18n-en="Contact">Kontak</span>
         </button>
         <span class="nav-indicator" id="navIndicator"></span>
       </div>
@@ -111,38 +123,38 @@
       <!-- ABOUT -->
       <article class="page active" data-page="about">
         <span class="bg-blob" style="background:var(--primary); width:340px; height:340px; top:0; right:-100px;"></span>
-        <span class="page-eyebrow reveal-el">// tentang</span>
-        <h2 class="page-title reveal-el">Membangun antarmuka yang terasa <span class="grad-text">hidup</span>.</h2>
-        <p class="intro-text reveal-el">Aku lulusan baru <strong>Sistem Informasi</strong> dengan pengalaman magang
+        <span class="page-eyebrow reveal-el" data-i18n-id="// tentang" data-i18n-en="// about">// tentang</span>
+        <h2 class="page-title reveal-el" data-i18n-id-html='Membangun antarmuka yang terasa <span class="grad-text">hidup</span>.' data-i18n-en-html='Building interfaces that feel <span class="grad-text">alive</span>.'>Membangun antarmuka yang terasa <span class="grad-text">hidup</span>.</h2>
+        <p class="intro-text reveal-el" data-i18n-id-html='Aku lulusan baru <strong>Sistem Informasi</strong> dengan pengalaman magang langsung sebagai Front-End Developer. Aku suka mengubah file desain jadi antarmuka yang benar-benar berfungsi sesuai tampilannya — transisi, spacing, sampai detail kecil yang bikin sebuah situs terasa selesai. Berbasis di <strong>Tangerang, Indonesia</strong>, terbuka untuk posisi front-end dan web developer.' data-i18n-en-html="I'm a recent <strong>Information Systems</strong> graduate with hands-on internship experience as a Front-End Developer. I love turning design files into interfaces that truly work the way they look — transitions, spacing, down to the small details that make a site feel finished. Based in <strong>Tangerang, Indonesia</strong>, open to front-end and web developer roles.">Aku lulusan baru <strong>Sistem Informasi</strong> dengan pengalaman magang
           langsung sebagai Front-End Developer. Aku suka mengubah file desain jadi antarmuka yang benar-benar
           berfungsi sesuai tampilannya — transisi, spacing, sampai detail kecil yang bikin sebuah situs terasa
           selesai. Berbasis di <strong>Tangerang, Indonesia</strong>, terbuka untuk posisi front-end dan web developer.</p>
  
-        <h3 class="block-heading reveal-el">Yang sedang aku kerjakan</h3>
+        <h3 class="block-heading reveal-el" data-i18n-id="Yang sedang aku kerjakan" data-i18n-en="What I'm currently doing">Yang sedang aku kerjakan</h3>
         <div class="service-grid">
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-            <div class="service-title">Pengembangan Front-End</div>
-            <div class="service-desc">Mengubah desain jadi antarmuka yang responsif dan interaktif dengan kode yang rapi dan mudah dirawat.</div>
+            <div class="service-title" data-i18n-id="Pengembangan Front-End" data-i18n-en="Front-End Development">Pengembangan Front-End</div>
+            <div class="service-desc" data-i18n-id="Mengubah desain jadi antarmuka yang responsif dan interaktif dengan kode yang rapi dan mudah dirawat." data-i18n-en="Turning designs into responsive, interactive interfaces with clean, maintainable code.">Mengubah desain jadi antarmuka yang responsif dan interaktif dengan kode yang rapi dan mudah dirawat.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-            <div class="service-title">Layout Responsif</div>
-            <div class="service-desc">Memastikan setiap layout tetap rapi di desktop, tablet, maupun mobile.</div>
+            <div class="service-title" data-i18n-id="Layout Responsif" data-i18n-en="Responsive Layouts">Layout Responsif</div>
+            <div class="service-desc" data-i18n-id="Memastikan setiap layout tetap rapi di desktop, tablet, maupun mobile." data-i18n-en="Making sure every layout stays clean across desktop, tablet, and mobile.">Memastikan setiap layout tetap rapi di desktop, tablet, maupun mobile.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
-            <div class="service-title">Motion &amp; Interaksi</div>
-            <div class="service-desc">Menambahkan transisi dan micro-interaction yang bikin sebuah antarmuka terasa selesai.</div>
+            <div class="service-title" data-i18n-id="Motion &amp; Interaksi" data-i18n-en="Motion &amp; Interaction">Motion &amp; Interaksi</div>
+            <div class="service-desc" data-i18n-id="Menambahkan transisi dan micro-interaction yang bikin sebuah antarmuka terasa selesai." data-i18n-en="Adding transitions and micro-interactions that make an interface feel finished.">Menambahkan transisi dan micro-interaction yang bikin sebuah antarmuka terasa selesai.</div>
           </div>
           <div class="service-card reveal-el">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
-            <div class="service-title">Integrasi CMS &amp; Backend</div>
-            <div class="service-desc">Menghubungkan antarmuka ke PHP/CodeIgniter dan MySQL untuk halaman yang dinamis dan berbasis data.</div>
+            <div class="service-title" data-i18n-id="Integrasi CMS &amp; Backend" data-i18n-en="CMS &amp; Backend Integration">Integrasi CMS &amp; Backend</div>
+            <div class="service-desc" data-i18n-id="Menghubungkan antarmuka ke PHP/CodeIgniter dan MySQL untuk halaman yang dinamis dan berbasis data." data-i18n-en="Connecting interfaces to PHP/CodeIgniter and MySQL for dynamic, data-driven pages.">Menghubungkan antarmuka ke PHP/CodeIgniter dan MySQL untuk halaman yang dinamis dan berbasis data.</div>
           </div>
         </div>
  
-        <h3 class="block-heading reveal-el">Perangkat &amp; teknologi</h3>
+        <h3 class="block-heading reveal-el" data-i18n-id="Perangkat &amp; teknologi" data-i18n-en="Tools &amp; technologies">Perangkat &amp; teknologi</h3>
         <div class="tools-marquee reveal-el">
           <div class="tools-track">
             <div class="chip-row">
@@ -181,13 +193,13 @@
       <article class="page" data-page="resume">
         <span class="bg-blob" style="background:var(--accent); width:300px; height:300px; top:10%; left:-100px;"></span>
         <span class="page-eyebrow reveal-el">// resume</span>
-        <h2 class="page-title reveal-el">Tempat aku pernah bekerja</h2>
-        <p class="intro-text reveal-el">Setiap peran yang pernah aku jalani, dari yang paling baru sampai yang pertama.</p>
+        <h2 class="page-title reveal-el" data-i18n-id="Tempat aku pernah bekerja" data-i18n-en="Places I've worked">Tempat aku pernah bekerja</h2>
+        <p class="intro-text reveal-el" data-i18n-id="Setiap peran yang pernah aku jalani, dari yang paling baru sampai yang pertama." data-i18n-en="Every role I've held, from the most recent to the first.">Setiap peran yang pernah aku jalani, dari yang paling baru sampai yang pertama.</p>
  
         <div class="timeline">
           <div class="timeline-track"><div class="timeline-progress" id="tlProgress"></div></div>
 
-          <div class="tl-item reveal-el">
+          <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-card">
               <div class="tl-meta"><span class="tl-date">Agu 2024 – Agu 2025</span><span class="tl-badge">Kontrak</span></div>
@@ -201,7 +213,7 @@
             </div>
           </div>
  
-          <div class="tl-item reveal-el">
+          <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-card">
               <div class="tl-meta"><span class="tl-date">Des 2023 – Feb 2024</span><span class="tl-badge">Magang</span></div>
@@ -215,7 +227,7 @@
             </div>
           </div>
  
-          <div class="tl-item reveal-el">
+          <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-card">
               <div class="tl-meta"><span class="tl-date">Okt 2021 – Des 2021</span><span class="tl-badge">Magang</span></div>
@@ -230,7 +242,7 @@
             </div>
           </div>
  
-          <div class="tl-item reveal-el">
+          <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-card">
               <div class="tl-meta"><span class="tl-date">Sep 2021 – Okt 2021</span><span class="tl-badge">Paruh waktu</span></div>
@@ -244,7 +256,7 @@
             </div>
           </div>
  
-          <div class="tl-item reveal-el">
+          <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-card">
               <div class="tl-meta"><span class="tl-date">Jul 2018 – Des 2021</span><span class="tl-badge">Penuh waktu</span></div>
@@ -264,23 +276,23 @@
       <article class="page" data-page="portfolio">
         <span class="bg-blob" style="background:var(--primary); width:320px; height:320px; bottom:0; right:-100px;"></span>
         <span class="page-eyebrow reveal-el">// portfolio</span>
-        <h2 class="page-title reveal-el">Things I've built</h2>
-        <p class="intro-text reveal-el">Projects made during internships and as hands-on exercises to learn new concepts.</p>
+        <h2 class="page-title reveal-el" data-i18n-id="Hal-hal yang pernah aku buat" data-i18n-en="Things I've built">Things I've built</h2>
+        <p class="intro-text reveal-el" data-i18n-id="Proyek yang dibuat selama magang dan sebagai latihan langsung untuk mempelajari konsep baru." data-i18n-en="Projects made during internships and as hands-on exercises to learn new concepts.">Projects made during internships and as hands-on exercises to learn new concepts.</p>
         <div class="filter-row reveal-el">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="internship">Internship</button>
-          <button class="filter-btn" data-filter="exercise">Exercise</button>
+          <button class="filter-btn active" data-filter="all" data-i18n-id="Semua" data-i18n-en="All">All</button>
+          <button class="filter-btn" data-filter="internship" data-i18n-id="Magang" data-i18n-en="Internship">Internship</button>
+          <button class="filter-btn" data-filter="exercise" data-i18n-id="Latihan" data-i18n-en="Exercise">Exercise</button>
         </div>
         <div class="proj-grid" id="projGrid"></div>
-        <div class="show-more-wrap"><button class="btn-ghost" id="showMoreBtn">Show more ↓</button></div>
+        <div class="show-more-wrap"><button class="btn-ghost" id="showMoreBtn" data-i18n-id="Lihat lebih ↓" data-i18n-en="Show more ↓">Show more ↓</button></div>
       </article>
  
       <!-- CONTACT -->
       <article class="page" data-page="contact">
         <span class="bg-blob" style="background:var(--accent); width:300px; height:300px; top:0; left:-100px;"></span>
         <span class="page-eyebrow reveal-el">// contact</span>
-        <h2 class="page-title reveal-el">Let's get in touch</h2>
-        <p class="intro-text reveal-el">Have a project or an opportunity in mind? Send a message and I'll get back to you.</p>
+        <h2 class="page-title reveal-el" data-i18n-id="Yuk, mulai obrolan" data-i18n-en="Let's get in touch">Let's get in touch</h2>
+        <p class="intro-text reveal-el" data-i18n-id="Punya proyek atau peluang kerja sama? Kirim pesan dan aku akan segera membalas." data-i18n-en="Have a project or an opportunity in mind? Send a message and I'll get back to you.">Have a project or an opportunity in mind? Send a message and I'll get back to you.</p>
         <div class="contact-grid">
           <div class="contact-info-card reveal-el">
             <div class="contact-item">
@@ -293,7 +305,7 @@
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
-              <div class="contact-text"><div class="label">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
+              <div class="contact-text"><div class="label" data-i18n-id="Lokasi" data-i18n-en="Location">Lokasi</div><div class="val">Tangerang, Indonesia</div></div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.32.9 11.6c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.66 5.34-5.2 5.62.41.36.77 1.06.77 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A11.1 11.1 0 0 0 23.1 11.6C23.1 5.32 18.27.5 12 .5Z"/></svg></div>
@@ -302,10 +314,10 @@
           </div>
           <div class="form-card reveal-el">
             <form id="contactForm">
-              <div class="field"><label for="fname">Name</label><input id="fname" name="name" type="text" placeholder="Your name" required /></div>
-              <div class="field"><label for="femail">Email address</label><input id="femail" name="email" type="email" placeholder="you@example.com" required /></div>
-              <div class="field"><label for="fmsg">Message</label><textarea id="fmsg" name="message" placeholder="Tell me about your project..." required></textarea></div>
-              <button type="submit" class="cv-btn" style="display:block; width:100%;">Send message →</button>
+              <div class="field"><label for="fname" data-i18n-id="Nama" data-i18n-en="Name">Name</label><input id="fname" name="name" type="text" placeholder="Your name" data-i18n-id-ph="Nama kamu" data-i18n-en-ph="Your name" required /></div>
+              <div class="field"><label for="femail" data-i18n-id="Alamat email" data-i18n-en="Email address">Email address</label><input id="femail" name="email" type="email" placeholder="you@example.com" required /></div>
+              <div class="field"><label for="fmsg" data-i18n-id="Pesan" data-i18n-en="Message">Message</label><textarea id="fmsg" name="message" placeholder="Tell me about your project..." data-i18n-id-ph="Ceritakan tentang proyekmu..." data-i18n-en-ph="Tell me about your project..." required></textarea></div>
+              <button type="submit" class="cv-btn" style="display:block; width:100%;" data-i18n-id="Kirim pesan →" data-i18n-en="Send message →">Send message →</button>
             </form>
           </div>
         </div>

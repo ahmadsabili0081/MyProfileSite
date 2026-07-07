@@ -20,6 +20,7 @@
     --shadow:0 20px 45px -22px rgba(90,80,140,.25);
   }
   *{box-sizing:border-box;}
+  html, body{ overflow-x:hidden; width:100%; }
   body{
     margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
     line-height:1.7; -webkit-font-smoothing:antialiased;
@@ -33,6 +34,15 @@
   ::selection{background:var(--primary); color:#fff;}
   .grad-text{background:linear-gradient(100deg, var(--primary), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent;}
   @media (prefers-reduced-motion: reduce){ *{animation-duration:.01ms !important; transition-duration:.01ms !important;} }
+
+  /* ---- Cursor spotlight (desktop only, added via main.js) ---- */
+  .spotlight{
+    position:fixed; inset:0; pointer-events:none; z-index:5; opacity:0;
+    transition:opacity .4s ease;
+    background:radial-gradient(600px circle at var(--x,50%) var(--y,50%),
+      rgba(139,92,246,.12), transparent 40%);
+  }
+  .spotlight.active{ opacity:1; }
  
   /* ================= APP SHELL ================= */
   .app{display:flex; min-height:100vh;}
@@ -343,12 +353,19 @@
     .sidebar{
       position:relative; width:100%; height:auto; flex-direction:row; flex-wrap:wrap; align-items:center;
       gap:14px; padding:22px 20px; top:auto;
+      overflow:hidden; max-width:100vw;
     }
+    .sidebar-head{ min-width:0; }
     .avatar-wrap{width:64px; height:64px; margin:0;}
-    .profile-name{text-align:left; font-size:16px; margin:0;}
+    .profile-name{text-align:left; font-size:16px; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%;}
     .profile-title{margin:6px 0 0; text-align:left;}
     .sidebar-head{display:flex; align-items:center; gap:14px; flex:1;}
-    .sidebar-divider, .cv-btn, .social-row, .avail-row{display:none;}
+    .sidebar-divider, .cv-btn, .social-row{display:none;}
+    .avail-row{
+      display:flex; flex:0 0 100%; order:2; justify-content:flex-end;
+      margin-top:-6px;
+    }
+    .avail-badge{ display:none; }
     .contacts-toggle{display:flex; width:auto; flex:0 0 100%; order:3; border-top:1px solid var(--border); margin-top:10px; padding-top:14px;}
     .contact-list{flex:0 0 100%; order:4; max-height:0; overflow:hidden; transition:max-height .4s ease; gap:14px;}
     .contact-list.open{max-height:600px; padding-top:14px;}

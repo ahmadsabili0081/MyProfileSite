@@ -141,12 +141,20 @@ $(function(){
   // overlapping it up in the corner). We measure the nav's real height
   // instead of guessing a fixed number, so it stays correct even if the
   // nav's height changes (longer labels, different font, etc).
+  //
+  // It also needs to clear the chat bubble (added below), which sits in
+  // the same bottom-right corner — otherwise the two controls stack on
+  // top of each other. The theme toggle is placed ABOVE the chat bubble
+  // rather than beside it, since side-by-side still overlaps at this
+  // screen width.
   var navbarEl = document.getElementById('navbar');
   function positionMobileToggle(){
     if(!mobileMQ.matches){ $('#themeToggle').css('bottom',''); return; }
     var gap = 12;
     var navBottomOffset = 16; // must match .navbar's bottom value in CSS
-    $('#themeToggle').css('bottom', (navBottomOffset + navbarEl.offsetHeight + gap) + 'px');
+    var fabH = $('#chatFab').outerHeight() || 52;
+    var chatGap = 14;
+    $('#themeToggle').css('bottom', (navBottomOffset + navbarEl.offsetHeight + gap + fabH + chatGap) + 'px');
   }
   positionMobileToggle();
   $(window).on('resize orientationchange', positionMobileToggle);
@@ -372,6 +380,22 @@ $(function(){
       gsap.to(el, {y: i%2===0 ? 30 : -30, duration:7+i, repeat:-1, yoyo:true, ease:'sine.inOut'});
     });
   }
+
+  /* ================= CURSOR SPOTLIGHT (desktop only) ================= */
+  // A soft radial glow that follows the mouse across the main content area.
+  // Skipped entirely on mobile (no real cursor) and reduced-motion.
+  if(!reduceMotion && !mobileMQ.matches){
+    var $spot = $('<div class="spotlight" aria-hidden="true"></div>').appendTo($main);
+    var spotEl = $spot[0];
+    $main.on('mousemove', function(e){
+      var r = this.getBoundingClientRect();
+      spotEl.style.setProperty('--x', (e.clientX - r.left) + 'px');
+      spotEl.style.setProperty('--y', (e.clientY - r.top) + 'px');
+      $spot.addClass('active');
+    }).on('mouseleave', function(){
+      $spot.removeClass('active');
+    });
+  }
  
   /* ================= PROJECTS ================= */
   var projects = [
@@ -496,6 +520,11 @@ $(function(){
     // above the bubble, and let max-height (from CSS) handle the top.
     var fabH = $fab.outerHeight() || 58;
     $panel.css({ bottom:(navSpace + fabH + 12) + 'px', top:'auto' });
+
+    // The theme toggle stacks above the chat bubble — recompute it here too
+    // so both widgets always agree on layout, regardless of which one
+    // triggered the reflow (resize, orientation change, font load, etc).
+    if(typeof positionMobileToggle === 'function'){ positionMobileToggle(); }
   }
   positionChatWidget();
   $(window).on('resize orientationchange', positionChatWidget);

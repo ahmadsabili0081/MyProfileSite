@@ -143,18 +143,22 @@ $(function(){
   // nav's height changes (longer labels, different font, etc).
   //
   // It also needs to clear the chat bubble (added below), which sits in
-  // the same bottom-right corner — otherwise the two controls stack on
-  // top of each other. The theme toggle is placed ABOVE the chat bubble
-  // rather than beside it, since side-by-side still overlaps at this
-  // screen width.
+  // the same bottom-right corner. Earlier this was solved by stacking the
+  // toggle ABOVE the bubble, but on short phone viewports that pushes it
+  // high enough to overlap page content instead. Sitting it beside the
+  // bubble (same row, shifted left) keeps both controls on the same low
+  // horizontal band no matter how short the screen is.
   var navbarEl = document.getElementById('navbar');
   function positionMobileToggle(){
-    if(!mobileMQ.matches){ $('#themeToggle').css('bottom',''); return; }
+    if(!mobileMQ.matches){ $('#themeToggle').css({bottom:'', right:''}); return; }
     var gap = 12;
     var navBottomOffset = 16; // must match .navbar's bottom value in CSS
-    var fabH = $('#chatFab').outerHeight() || 52;
-    var chatGap = 14;
-    $('#themeToggle').css('bottom', (navBottomOffset + navbarEl.offsetHeight + gap + fabH + chatGap) + 'px');
+    $('#themeToggle').css('bottom', (navBottomOffset + navbarEl.offsetHeight + gap) + 'px');
+ 
+    var fabW = $('#chatFab').outerWidth() || 52;
+    var chatRight = 16; // must match .chat-fab-wrap's right value in mobile CSS
+    var sideGap = 14;
+    $('#themeToggle').css('right', (chatRight + fabW + sideGap) + 'px');
   }
   positionMobileToggle();
   $(window).on('resize orientationchange', positionMobileToggle);
@@ -521,7 +525,7 @@ $(function(){
     var fabH = $fab.outerHeight() || 58;
     $panel.css({ bottom:(navSpace + fabH + 12) + 'px', top:'auto' });
 
-    // The theme toggle stacks above the chat bubble — recompute it here too
+    // The theme toggle sits beside the chat bubble — recompute it here too
     // so both widgets always agree on layout, regardless of which one
     // triggered the reflow (resize, orientation change, font load, etc).
     if(typeof positionMobileToggle === 'function'){ positionMobileToggle(); }
